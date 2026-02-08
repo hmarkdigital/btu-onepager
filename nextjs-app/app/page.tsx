@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroLanding
-        title="Üdvözlünk a BioTechUSA csapatában!"
-        description="Minden információ egy helyen, amit egy BioTechUSA influencernek tudnia kell. Rendelések, briefek, tartalmak és kifizetések kezelése egyszerűen."
+        title="Üdv a csapatban!"
+        description="Minden információ, amit egy BioTechUSA influencernek tudnia kell"
         gradientColors={{
           from: "#001322",
-          to: "#028FFB"
+          to: "#33C5F3"
         }}
       />
 

@@ -87,9 +87,9 @@
   --radius: 0.625rem;
 
   /* Brand Colors */
-  --brand-background: #010204;
+  --brand-background: #00151C;
   --brand-gradient: #001322;
-  --brand-accent: #028FFB;
+  --brand-accent: #33C5F3;
 
   /* Light Mode (Not used primarily, but defined for completeness) */
   --background: #ffffff;
@@ -138,7 +138,7 @@
 
 .dark {
   /* Dark Mode (Default for this project) */
-  --background: #010204;
+  --background: #00151C;
   --foreground: #ffffff;
 
   --card: #00232E;
@@ -147,7 +147,7 @@
   --popover: #00232E;
   --popover-foreground: #ffffff;
 
-  --primary: #028FFB;
+  --primary: #33C5F3;
   --primary-foreground: #ffffff;
 
   --secondary: #001322;
@@ -164,22 +164,22 @@
 
   --border: #00232E;
   --input: #00232E;
-  --ring: #028FFB;
+  --ring: #33C5F3;
 
-  --chart-1: #028FFB;
+  --chart-1: #33C5F3;
   --chart-2: #2BA3CC;
-  --chart-3: #33C5F3;
+  --chart-3: #028FFB;
   --chart-4: #00232E;
   --chart-5: #001322;
 
   --sidebar: #00232E;
   --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #028FFB;
+  --sidebar-primary: #33C5F3;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #001322;
   --sidebar-accent-foreground: #f8fafc;
   --sidebar-border: #001322;
-  --sidebar-ring: #028FFB;
+  --sidebar-ring: #33C5F3;
 }
 
 @layer base {

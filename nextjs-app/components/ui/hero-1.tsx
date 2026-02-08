@@ -18,7 +18,7 @@ interface HeroLandingProps {
 export function HeroLanding({
     title,
     description,
-    gradientColors = { from: "#001322", to: "#028FFB" }
+    gradientColors = { from: "#001322", to: "#33C5F3" }
 }: HeroLandingProps) {
     const containerRef = useRef<HTMLDivElement>(null)
     const { scrollY } = useScroll()
@@ -39,7 +39,7 @@ export function HeroLanding({
     ]
 
     return (
-        <div ref={containerRef} id="hero" className="min-h-[110vh] w-full relative overflow-hidden bg-[#010204]">
+        <div ref={containerRef} id="hero" className="min-h-[110vh] w-full relative overflow-hidden bg-[#00151C]">
             <FloatingNavbar items={navItems} />
 
             {/* Animated Gradient Backgrounds */}

@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className={`${roboto.className} bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white`}>
         {children}
         <div className="fixed inset-0 pointer-events-none z-[-1]">
-          <div className="absolute top-0 left-0 w-full h-full bg-[#010204]"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[#00151C]"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 rounded-full blur-[120px] opacity-20"></div>
           <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-[#001322] rounded-full blur-[100px] opacity-30"></div>
         </div>
