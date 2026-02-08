@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BioTechUSA Influencer Onboarding - Minden információ egy helyen">
+    <title>BioTechUSA Influencer Onboarding</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__container">
+            <img src="assets/logo.jpg" alt="BioTechUSA Logo" class="nav__logo">
+            <ul class="nav__menu">
+                <li><a href="#hero" class="nav__link">Kezdőlap</a></li>
+                <li><a href="#ordering" class="nav__link">Rendelés</a></li>
+                <li><a href="#briefs" class="nav__link">Briefek</a></li>
+                <li><a href="#content" class="nav__link">Tartalmak</a></li>
+                <li><a href="#shoots" class="nav__link">Forgatások</a></li>
+                <li><a href="#payments" class="nav__link">Kifizetések</a></li>
+                <li><a href="#faq" class="nav__link">GYIK</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero__background"></div>
+        <div class="hero__content">
+            <h1 class="hero__title">Üdv a csapatban!</h1>
+            <p class="hero__subtitle">Minden információ, amit egy BioTechUSA influencernek tudnia kell</p>
+            <a href="#ordering" class="btn btn--primary">Kezdjük el</a>
+        </div>
+    </section>
+
+    <!-- Ordering Section -->
+    <section class="section" id="ordering">
+        <div class="container">
+            <h2 class="section__title">Rendelőfelület</h2>
+            <p class="section__description">Válassz a termékek közül és rendeld meg egyszerűen</p>
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be rendered here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Monthly Briefs Section -->
+    <section class="section section--dark" id="briefs">
+        <div class="container">
+            <h2 class="section__title">Havi briefek</h2>
+            <p class="section__description">Lépésről lépésre végigvezetünk a havi feladatokon</p>
+            <div class="brief-workflow" id="brief-workflow">
+                <!-- Brief steps will be rendered here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products for Briefs Section -->
+    <section class="section" id="products-for-briefs">
+        <div class="container">
+            <h2 class="section__title">Termékek a briefekhez</h2>
+            <p class="section__description">Az aktuális kampányokhoz kiválasztott termékek</p>
+            <div class="product-list" id="product-list">
+                <!-- Campaign products will be rendered here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Approval Section -->
+    <section class="section section--dark" id="content">
+        <div class="container">
+            <h2 class="section__title">Tartalmak jóváhagyása</h2>
+            <p class="section__description">Töltsd fel a tartalmaidat és kövesd nyomon az állapotukat</p>
+            
+            <div class="content-approval">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-area__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                        </svg>
+                    </div>
+                    <p class="upload-area__text">Húzd ide a fájlokat vagy kattints a feltöltéshez</p>
+                    <input type="file" id="file-input" class="upload-area__input" accept="image/*,video/*" multiple>
+                </div>
+                
+                <div class="submissions-grid" id="submissions-grid">
+                    <!-- Content submissions will be rendered here by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shoots Section -->
+    <section class="section" id="shoots">
+        <div class="container">
+            <h2 class="section__title">Forgatások és fotózások</h2>
+            <p class="section__description">Foglalj időpontot vagy nézd meg a közelgő forgatásokat</p>
+            <div class="shoots-calendar" id="shoots-calendar">
+                <!-- Shoot bookings will be rendered here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Payments Section -->
+    <section class="section section--dark" id="payments">
+        <div class="container">
+            <h2 class="section__title">Kuponkódos kifizetések</h2>
+            <p class="section__description">Kövesd nyomon a bevételeidet és a kifizetések állapotát</p>
+            <div class="payment-dashboard" id="payment-dashboard">
+                <!-- Payment dashboard will be rendered here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+        <div class="container">
+            <h2 class="section__title">Gyakran ismételt kérdések</h2>
+            <p class="section__description">Válaszok a leggyakoribb kérdésekre</p>
+            <div class="faq-accordion" id="faq-accordion">
+                <!-- FAQ items will be rendered here by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__text">&copy; 2026 BioTechUSA. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/sections.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Vercel
+.vercel/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# IDEs
+.idea/
+.vscode/
+
+# Project Specific
+nextjs-app/node_modules/
+nextjs-app/.next/
+nextjs-app/.vercel/

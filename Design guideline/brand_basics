@@ -1,0 +1,19 @@
+## 1. Color Palette (Színek)
+
+### Main Colors
+* **Background:** `#010204`
+* **Gradient color:** `#001322`
+* **Accent / CTA :** `#028FFB`
+* **Text (White):** `#FFFFFF`
+
+### Secondary Colors
+* **Card Background:** `#00232E`
+* **Secondary Text (Gray):** `#90A4AE`
+
+---
+
+## 2. Typography (Betűtípusok)
+
+### Font Families
+* **Headings:** `Nexa` (Weight: ExtraBold / Black 900) - *Alternate: Gotham*
+* **Body Text:** `Roboto` (Weight: Regular 400 / Light 300) - *Alternate: Open Sans*
