@@ -30,3 +30,7 @@ dist/
 nextjs-app/node_modules/
 nextjs-app/.next/
 nextjs-app/.vercel/
+
+# Claude Code
+.agent/
+.claude/
