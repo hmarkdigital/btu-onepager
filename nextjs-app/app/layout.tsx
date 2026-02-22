@@ -1,20 +1,5 @@
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
-import localFont from 'next/font/local'
 import './globals.css'
-
-// Using Roboto for body text
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto',
-})
-
-// Using local Nexa font (or fallback to system font for now if files missing)
-// In a real project, we'd add the font files to /public/fonts/
-// For now, we'll simulate Nexa with a strong sans-serif stack in Tailwind config
-// But let's set up the variable structure
 
 export const metadata: Metadata = {
   title: 'BioTechUSA - Influencer Onboarding',
@@ -28,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="hu" className="dark scroll-smooth">
-      <body className={`${roboto.className} bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white`}>
+      <body className={`font-sans bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white`}>
         {children}
         <div className="fixed inset-0 pointer-events-none z-[-1]">
           <div className="absolute top-0 left-0 w-full h-full bg-[#010204]"></div>

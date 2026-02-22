@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import { FloatingNavbar } from './floating-navbar'
 import { SpotlightButton } from './spotlight-button'
+import Image from 'next/image'
 
 interface HeroLandingProps {
     title: string
@@ -39,7 +40,7 @@ export function HeroLanding({
     ]
 
     return (
-        <div ref={containerRef} id="hero" className="min-h-[110vh] w-full relative overflow-hidden bg-[#010204]">
+        <div ref={containerRef} id="hero" className="w-full relative overflow-hidden bg-[#010204]">
             <FloatingNavbar items={navItems} />
 
             {/* Animated Gradient Backgrounds */}
@@ -77,22 +78,8 @@ export function HeroLanding({
             </motion.div>
 
             {/* Hero Content */}
-            <div className="relative z-10 container px-6 pt-32 mx-auto h-screen flex flex-col justify-center items-center text-center">
-                <motion.div style={{ y: textY, opacity }}>
-
-                    {/* Announcement Pill */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                        className="mb-8 flex justify-center"
-                    >
-                        <div className="relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-400 ring-1 ring-white/10 hover:ring-primary/50 hover:text-white hover:bg-white/5 transition-all duration-300 backdrop-blur-md cursor-pointer group">
-                            <span className="font-semibold text-primary group-hover:text-white transition-colors">Újdonság</span>
-                            <span className="mx-2 text-gray-600">|</span>
-                            Február havi brief elérhető <span className="ml-1 group-hover:translate-x-1 inline-block transition-transform">→</span>
-                        </div>
-                    </motion.div>
+            <div className="relative z-10 container px-6 pt-32 pb-16 mx-auto min-h-screen flex flex-col justify-start items-center text-center">
+                <motion.div style={{ y: textY, opacity }} className="mt-10 md:mt-20">
 
                     {/* Main Title with Staggered Character Animation */}
                     <motion.h1
@@ -136,24 +123,42 @@ export function HeroLanding({
                         </a>
                     </motion.div>
                 </motion.div>
-            </div>
 
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-            >
-                <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500">Görgess le</span>
-                <div className="w-[1px] h-16 bg-gradient-to-b from-primary/0 via-primary to-primary/0 overflow-hidden">
-                    <motion.div
-                        className="w-full h-1/2 bg-primary"
-                        animate={{ y: [-20, 40] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                {/* Hero Feature Image */}
+                <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1, duration: 1, ease: "easeOut" }}
+                    className="relative w-full max-w-5xl mx-auto mt-20 md:mt-28 shrink-0 aspect-[4/3] md:aspect-video rounded-3xl md:rounded-[40px] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(2,143,251,0.15)] group"
+                >
+                    <Image
+                        src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b0c104c9f65901a4efbea__AW_2503_Ok%20(1).webp"
+                        alt="BioTechUSA Hero Image"
+                        fill
+                        priority
+                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
-                </div>
-            </motion.div>
+                    {/* Gradient overlay to blend bottom into next section */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#010204] via-transparent to-transparent opacity-80" />
+                </motion.div>
+
+                {/* Scroll Indicator */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5, duration: 1 }}
+                    className="mt-16 md:mt-24 flex flex-col items-center gap-2"
+                >
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500">Görgess le</span>
+                    <div className="w-[1px] h-16 bg-gradient-to-b from-primary/0 via-primary to-primary/0 overflow-hidden">
+                        <motion.div
+                            className="w-full h-1/2 bg-primary"
+                            animate={{ y: [-20, 40] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                        />
+                    </div>
+                </motion.div>
+            </div>
         </div>
     )
 }

@@ -59,12 +59,12 @@ export function FAQSection() {
                     className="mt-16 text-center"
                 >
                     <p className="text-gray-400 mb-6">Nem találtad meg a választ?</p>
-                    <a href="mailto:influencer@biotechusa.com" className="inline-block">
-                        <SpotlightButton>
+                    <div className="inline-block">
+                        <SpotlightButton href="mailto:sportmarketing@biotechusa.com">
                             <Mail className="w-4 h-4 mr-2" />
                             Írj nekünk
                         </SpotlightButton>
-                    </a>
+                    </div>
                 </motion.div>
             </div>
         </section>

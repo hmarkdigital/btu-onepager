@@ -1,93 +1,132 @@
 'use client'
 
-import { products } from '@/lib/data'
-import { GlassCard } from '@/components/ui/glass-card'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { SpotlightButton } from '@/components/ui/spotlight-button'
 
 export function OrderingSection() {
     return (
-        <section id="ordering" className="py-32 relative overflow-hidden">
+        <section id="ordering" className="py-24 md:py-32 relative">
             <div className="container px-6 md:px-8 mx-auto max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-20"
+                    className="mb-16 md:mb-24"
                 >
-                    <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-6 tracking-tight">
+                    <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-[2px] bg-primary"></div>
+                        <span className="text-primary font-bold tracking-widest uppercase text-sm">Folyamat</span>
+                    </div>
+                    <h2 className="text-4xl md:text-6xl font-heading font-black text-white tracking-tight">
                         Rendelőfelület
                     </h2>
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light">
-                        Válassz a termékek közül és rendeld meg egyszerűen.
-                    </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {products.map((product, index) => (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+                    {/* Left Column: Text Content */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="prose prose-invert prose-lg max-w-none text-gray-300"
+                    >
+                        <p className="text-xl text-white font-medium mb-8">Szia!</p>
+
+                        <p className="mb-6">
+                            Mostantól rendeléseidet saját oldalunkon keresztül tudod leadni, amit csatlakozásodat követő hónapban aktiválj először. Létrehoztuk a rendelési profilodat: <a href="https://orders.biotechusa.com/home" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4 font-semibold">Order | BioTechUSA®</a>
+                        </p>
+
+                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8 backdrop-blur-sm">
+                            <ul className="list-none m-0 p-0 space-y-3">
+                                <li className="flex items-start gap-3">
+                                    <svg className="w-6 h-6 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                    </svg>
+                                    <span><strong>Felhasználónév:</strong> az email címed</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <svg className="w-6 h-6 text-primary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                                    </svg>
+                                    <span><strong>Jelszó:</strong> BTU1234 <span className="text-sm text-gray-400 font-normal">(ezt bármikor meg tudod változtatni)</span></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <p className="mb-6">
+                            A rendeléseidet mostantól ezen a felületen tudod leadni. Mnden hónap 5. napjáig szoktuk kérni a rendeléseket. Azaz márciusi rendelésed március 1-5 között add le a felületen.
+                        </p>
+
+                        <p className="mb-6 font-medium text-white/90">
+                            Ha a kapcsolattartóddal ettől eltérő rendelési formában állapodtatok meg, kérünk azokat vedd figyelembe!:)
+                        </p>
+
+                        <p className="mb-8">
+                            Amint leadod a rendelést, automatikusan kapsz majd egy visszaigazoló emailt róla, és kicsit később a <a href="mailto:szamla@szamlakozpont.hu" className="text-primary hover:underline">szamla@szamlakozpont.hu</a> címről érkezik egy email a termékszámlával.Ennek a számlának az összege lesz a rendelésed végösszege, és erről kell kiállítanod egy kompenzációs számlát, amit kérlek küldj el nekünk, illetve a <a href="mailto:penzugycsoport@biotechusa.com" className="text-primary hover:underline">penzugycsoport@biotechusa.com</a> címre is. Érdemes nem várni ezzel a hónap végé<strong>ig, hogy a rendelőfelületedet időben aktiválhassa a számviteli kolléga a következő hónapra.</strong>
+                        </p>
+
+                        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <span className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">!</span>
+                            Fontos:
+                        </h3>
+
+                        <ul className="space-y-4 mb-8 text-gray-400">
+                            <li className="flex items-start gap-3">
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                <span>A kompenzációs számla összege <strong className="text-white">forintra pontosan egyezzen</strong> a rendelt összeggel. Amennyiben cégen keresztül számlázol, az áfa értékkel együtt egyezzen meg a rendelés összértékével, ne 50.000 ft + áfaként.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                <span>A fizetési módnál <strong className="text-white">semmiképp ne átutalást</strong> jelölj – ha a számlázó rendszer engedi, válaszd a <em>kompenzáció</em> megnevezést, ha nem, akkor az <em>egyéb</em> is tökéletes.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                <span>A megjegyzés rovatba mindig írd bele, hogy miről szól a számla, pl.: <em>„február havi kompenzáció”</em>.</span>
+                            </li>
+                        </ul>
+
+                        <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 mb-8 text-gray-300">
+                            Ha esetleg nem kapnád meg emailben a termékszámlát rendelésedet követően 2-3 nappal sem (spam között sem találod), kérlek jelezd – de alapvetően fontos, hogy megérkezzen, mert amíg nem kapunk róla kompenzációs számlát, a rendszer automatikusan <strong className="text-white">zárolja a fiókodat</strong>, és nem fogsz tudni új rendelést leadni.
+                        </div>
+
+                        <p className="text-sm text-gray-400 italic mb-10">
+                            Előfordulhat, hogy a rendelőfelületen vannak olyan termékek vagy ruhák, amelyeknek 0 Ft-os az áruk, vagy egyáltalán nem érhetők el. Ilyenkor ezeket a termékeket sajnos nem tudod a felületről megrendelni. Semmi gond! A rendelésed végösszegéből vond le ezek értékét, és írd meg emailben, hogy melyik darabokat nem tudtad leadni. Mi ezeket külön kiírjuk neked, és természetesen meg fogod kapni – csak külön csomagban fog érkezni. A lényeg, hogy így is mindenhez hozzá tudsz jutni.
+                        </p>
+
+                        <div className="inline-block">
+                            <SpotlightButton onClick={() => window.open("https://orders.biotechusa.com/home", "_blank")}>
+                                Irány a rendelőfelület
+                            </SpotlightButton>
+                        </div>
+                    </motion.div>
+
+                    {/* Right Column: Image */}
+                    <div className="relative lg:sticky lg:top-32 h-fit">
                         <motion.div
-                            key={product.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            <GlassCard className="h-full flex flex-col p-0 overflow-hidden group">
-                                <div className="aspect-[4/3] relative overflow-hidden m-2 rounded-[20px]">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#00232E] to-transparent z-10 opacity-60" />
-                                    <Image
-                                        src={product.imageUrl}
-                                        alt={product.name}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                    <div className="absolute top-4 right-4 z-20">
-                                        <span className="px-3 py-1 bg-[#010204]/60 backdrop-blur-md text-xs font-bold text-white rounded-full border border-white/10 uppercase tracking-wider">
-                                            {getCategoryLabel(product.category)}
-                                        </span>
-                                    </div>
+                            <div className="relative aspect-[3/4] md:aspect-square lg:aspect-[4/5] w-full rounded-[30px] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(2,143,251,0.1)] group">
+                                <Image
+                                    src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bc14bfe203a0969bc8_rendele%CC%81s%20(1).webp"
+                                    alt="BioTechUSA Rendelés"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                {/* Decorative elements */}
+                                <div className="absolute inset-0 bg-gradient-to-tr from-[#010204]/60 via-transparent to-transparent opacity-80" />
+                                <div className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-[#010204]/60 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+                                    <p className="text-white font-medium">Add le a havi rendelésed 5-éig!</p>
                                 </div>
-
-                                <div className="p-8 flex flex-col flex-grow">
-                                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                                        {product.name}
-                                    </h3>
-                                    <p className="text-sm text-gray-400 mb-8 line-clamp-2 leading-relaxed">
-                                        Prémium minőségű {getCategoryLabel(product.category).toLowerCase()} a BioTechUSA kínálatából.
-                                    </p>
-                                    <div className="mt-auto">
-                                        <button
-                                            onClick={() => alert('Ez egy demo gomb.')}
-                                            className="w-full py-4 rounded-xl text-sm font-bold uppercase tracking-widest transition-all duration-300 border border-white/10 hover:bg-white/5 hover:border-primary/30 hover:text-white text-gray-300"
-                                        >
-                                            Kiválasztás
-                                        </button>
-                                    </div>
-                                </div>
-                            </GlassCard>
+                            </div>
                         </motion.div>
-                    ))}
-                </div>
-
-                <div className="mt-24 text-center">
-                    <a href="https://orders.biotechusa.com/home" target="_blank" rel="noopener noreferrer">
-                        <SpotlightButton>
-                            Tovább a teljes kínálathoz
-                        </SpotlightButton>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
     )
-}
-
-function getCategoryLabel(category: string) {
-    const labels: Record<string, string> = {
-        'protein': 'Fehérje',
-        'vitamin': 'Vitamin',
-        'supplement': 'Kiegészítő',
-        'snack': 'Snack'
-    }
-    return labels[category] || category
 }

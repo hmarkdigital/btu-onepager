@@ -38,7 +38,7 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
             >
                 <div
                     className={cn(
-                        "max-w-4xl mx-auto rounded-full px-6 py-3 transition-all duration-500 border border-white/10",
+                        "max-w-6xl mx-auto rounded-full px-6 py-3 transition-all duration-500 border border-white/10",
                         "bg-[#010204]/80 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
                     )}
                 >
@@ -46,22 +46,17 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                         {/* Logo */}
                         <div className="flex items-center">
                             <a href="#" className="flex items-center gap-2 group">
-                                <span className="text-lg font-black tracking-tighter text-white font-heading group-hover:text-primary transition-colors">
-                                    BioTech<span className="text-primary group-hover:text-white transition-colors">USA</span>
-                                </span>
-                                <span className="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-primary/20 text-primary border border-primary/20 uppercase tracking-widest ml-2">
-                                    Portal
-                                </span>
+                                <img src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b0506f7979eb097acf82f_BTU_logo_white.png" alt="BioTechUSA" className="h-6 object-contain" />
                             </a>
                         </div>
 
                         {/* Desktop Navigation */}
-                        <ul className="hidden md:flex items-center gap-1 text-sm font-medium text-white/60">
+                        <ul className="hidden lg:flex items-center gap-1 text-sm font-medium text-white/60">
                             {items.map((item) => (
                                 <li key={item.name}>
                                     <a
                                         href={item.href}
-                                        className="hover:text-white transition-all duration-300 px-4 py-2 rounded-full hover:bg-white/5 font-sans relative group"
+                                        className="inline-block hover:text-white transition-all duration-300 px-4 py-2 rounded-full hover:bg-white/5 font-sans relative group"
                                     >
                                         {item.name}
                                         <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-4 transition-all duration-300 opacity-0 group-hover:opacity-100" />
@@ -71,30 +66,11 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                         </ul>
 
                         {/* Desktop Actions */}
-                        <div className="hidden md:flex items-center gap-3">
-                            <button
-                                className="hover:bg-white/10 p-2.5 rounded-full transition-all duration-300 border border-white/5 bg-white/5 group"
-                                aria-label="Account"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 stroke-[1.5] text-white/80 group-hover:text-white transition-colors">
-                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                            </button>
-                            <button
-                                className="relative hover:bg-primary p-2.5 rounded-full transition-all duration-300 border border-white/5 bg-white/5 hover:border-primary group"
-                                aria-label="Notifications"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 stroke-[1.5] text-white/80 group-hover:text-white transition-colors">
-                                    <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-                                    <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-                                </svg>
-                                <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-primary rounded-full border-2 border-[#010204] group-hover:bg-white group-hover:border-primary transition-colors" />
-                            </button>
+                        <div className="hidden lg:flex items-center gap-3">
                         </div>
 
                         {/* Mobile Menu Button */}
-                        <div className="flex md:hidden">
+                        <div className="flex lg:hidden">
                             <button
                                 type="button"
                                 onClick={() => setMobileMenuOpen(true)}
@@ -118,7 +94,7 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                         className="fixed inset-0 z-[60] bg-[#010204]/95 backdrop-blur-xl p-6 md:hidden"
                     >
                         <div className="flex justify-between items-center mb-8">
-                            <span className="text-xl font-black text-white font-heading">BioTech<span className="text-primary">USA</span></span>
+                            <img src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b0506f7979eb097acf82f_BTU_logo_white.png" alt="BioTechUSA" className="h-8 object-contain" />
                             <button
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="p-2 text-gray-400 hover:text-white"

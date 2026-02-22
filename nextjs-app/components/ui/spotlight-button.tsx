@@ -8,14 +8,17 @@ interface SpotlightButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
     children: React.ReactNode
     className?: string
     variant?: 'primary' | 'secondary'
+    href?: string
+    target?: string
+    rel?: string
 }
 
-export function SpotlightButton({ children, className, variant = 'primary', ...props }: SpotlightButtonProps) {
-    const btnRef = useRef<HTMLButtonElement>(null)
+export function SpotlightButton({ children, className, variant = 'primary', href, target, rel, ...props }: SpotlightButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+    const btnRef = useRef<HTMLElement>(null)
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const [opacity, setOpacity] = useState(0)
 
-    const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
         if (!btnRef.current) return
 
         const rect = btnRef.current.getBoundingClientRect()
@@ -30,9 +33,14 @@ export function SpotlightButton({ children, className, variant = 'primary', ...p
         setOpacity(0)
     }
 
+    const Component = href ? 'a' : 'button'
+
     return (
-        <button
-            ref={btnRef}
+        <Component
+            href={href}
+            target={target}
+            rel={rel}
+            ref={btnRef as any}
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -42,7 +50,7 @@ export function SpotlightButton({ children, className, variant = 'primary', ...p
                 "backdrop-blur-md text-gray-300 hover:text-white uppercase tracking-widest text-sm",
                 className
             )}
-            {...props}
+            {...(props as any)}
         >
             <div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
@@ -77,6 +85,6 @@ export function SpotlightButton({ children, className, variant = 'primary', ...p
             <div
                 className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-transparent group-hover:ring-primary/20 transition-all duration-300"
             />
-        </button>
+        </Component>
     )
 }

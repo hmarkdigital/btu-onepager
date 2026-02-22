@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="BioTechUSA Influencer Onboarding - Minden információ egy helyen">
     <title>BioTechUSA Influencer Onboarding</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
@@ -18,6 +20,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/sections.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="nav" id="nav">
@@ -83,18 +86,20 @@
         <div class="container">
             <h2 class="section__title">Tartalmak jóváhagyása</h2>
             <p class="section__description">Töltsd fel a tartalmaidat és kövesd nyomon az állapotukat</p>
-            
+
             <div class="content-approval">
                 <div class="upload-area" id="upload-area">
                     <div class="upload-area__icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                         </svg>
                     </div>
                     <p class="upload-area__text">Húzd ide a fájlokat vagy kattints a feltöltéshez</p>
                     <input type="file" id="file-input" class="upload-area__input" accept="image/*,video/*" multiple>
                 </div>
-                
+
                 <div class="submissions-grid" id="submissions-grid">
                     <!-- Content submissions will be rendered here by JS -->
                 </div>
@@ -148,4 +153,5 @@
     <script src="js/sections.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
