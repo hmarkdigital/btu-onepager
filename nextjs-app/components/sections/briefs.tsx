@@ -32,7 +32,7 @@ export function BriefsSection() {
                         className="prose prose-invert prose-lg max-w-none text-gray-300"
                     >
                         <p className="mb-6">
-                            Az együttműködés során <strong className="text-white">havi briefekkel</strong> dolgozunk. Minden brief tartalmaz egy <strong className="text-white">beküldési határidőt</strong>, amelyet a PPT-ben jellemzően a <strong className="text-white">jobb alsó sarokban</strong> találsz.
+                            Az együttműködés során <strong className="text-white">havi briefekkel</strong> dolgozunk. Minden brief tartalmaz egy <strong className="text-white">beküldési határidőt</strong>, amelyet jellemzően a PPT-ben a <strong className="text-white">jobb alsó sarokban</strong> találsz.
                         </p>
 
                         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3 mt-10">
@@ -42,7 +42,7 @@ export function BriefsSection() {
 
                         <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm mb-10">
                             <p className="m-0">
-                                Ez a határidő <strong className="text-white">nem a posztolás időpontja</strong>, hanem az a dátum, <strong className="text-primary">ameddig a tartalmat el kell küldened nekünk jóváhagyásra</strong>. Amennyiben a tartalom jóváhagyásra kerül, <strong className="text-white">az adott hónapon belül akkor posztolod, amikor számodra a legideálisabb</strong>.
+                                Ez a határidő <strong className="text-white">nem a posztolás időpontja</strong>, hanem az a dátum, <strong className="text-primary">ameddig a tartalmat el kell küldened nekünk jóváhagyásra</strong>. Ha a tartalom jóváhagyásra került, a posztolásra vonatkozó időtartamban posztold. Amennyiben a brief nem tartalmaz erre vonatkozóan iránymutatást, mikor posztolj, abban az esetben rád bízzuk a hónapon belül mikor publikálod.
                             </p>
                         </div>
 

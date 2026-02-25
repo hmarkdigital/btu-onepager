@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { SpotlightButton } from '@/components/ui/spotlight-button'
 
 export function PaymentsSection() {
     return (
@@ -56,12 +57,12 @@ export function PaymentsSection() {
                         </p>
 
                         <p className="mb-6">
-                            A kuponkódos teljesítések összesítését <strong className="text-white">minden hónap végén készítjük el</strong> és az ehhez kapcsolódó kimutatásokat jellemzően <strong className="text-white">a tárgyhót követő hónap 10. napjáig</strong> küldjük ki a <a href="mailto:sportmarketing@biotechusa.com" className="text-primary hover:underline">sportmarketing@biotechusa.com</a> email címről.
+                            A kuponkódos teljesítések összesítését <strong className="text-white">minden hónap végén készítjük el</strong> és az ehhez kapcsolódó kimutatásokat jellemzően <strong className="text-white">a tárgyhót követő hónap 10. napjáig</strong> küldjük ki a <strong className="text-white">sportmarketing@biotechusa.com</strong> email címről.
                         </p>
 
                         <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-8 mt-8">
                             <p className="m-0 text-white font-medium">
-                                Fontos tudnod, hogy <strong className="text-primary font-black">kisebb összeg esetén (jellemzően 20.000 Ft alatt)</strong> nem minden hónapban küldjük ki automatikusan a kifizetési értesítést és a számlázási kérést. Ilyenkor az összeget „bent hagyjuk”, hogy tovább gyűljön.
+                                Fontos tudnod, hogy <strong className="text-primary font-black">kisebb összeg esetén (jellemzően 20.000 Ft alatt)</strong> nem minden hónapban küldjük ki automatikusan a kifizetési értesítést és a számlázási kérést. Ilyenkor az összeget „bent hagyjuk", hogy tovább gyűljön.
                             </p>
                         </div>
 
@@ -80,9 +81,19 @@ export function PaymentsSection() {
                             Amennyiben úgy érzed, hogy szeretnéd mindenképpen havonta megkapni az összegyűlt jutalékodat, <strong className="text-white">csak jelezd felénk</strong>, és örömmel elindítjuk a folyamatot.
                         </p>
 
-                        <p className="mt-8 pt-8 border-t border-white/10 italic text-gray-400">
+                        <p className="mb-6 italic text-gray-400">
                             Ha egy adott hónapban nem kapsz értesítést, <strong className="text-white">ne ijedj meg</strong> – ez egyszerűen azt jelenti, hogy még gyűjtjük számodra az összeget.
                         </p>
+
+                        <p className="mt-8 pt-8 border-t border-white/10 mb-8">
+                            Kuponkódod kifizetését a számla és teljesítés igazolás együttes megküldésével tudjuk indítani, amit a blokk aljáról le is tudsz tölteni. Figyelj oda a dokumentum helyes kitöltésére és aláírására, mert a pontatlanul kitöltött dokumentumot a rendszerünk nem tudja befogadni.
+                        </p>
+
+                        <div className="inline-block">
+                            <SpotlightButton onClick={() => window.open("https://docs.google.com/document/d/1Fg36MmxSr8DF7SlpS2TUN5p8ARKriwTV/edit?usp=sharing&ouid=101590571000073359774&rtpof=true&sd=true", "_blank")}>
+                                TIG minta letöltése
+                            </SpotlightButton>
+                        </div>
                     </motion.div>
                 </div>
             </div>

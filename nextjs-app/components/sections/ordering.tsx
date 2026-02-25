@@ -64,7 +64,7 @@ export function OrderingSection() {
                         </p>
 
                         <p className="mb-8">
-                            Amint leadod a rendelést, automatikusan kapsz majd egy visszaigazoló emailt róla, és kicsit később a <a href="mailto:szamla@szamlakozpont.hu" className="text-primary hover:underline">szamla@szamlakozpont.hu</a> címről érkezik egy email a termékszámlával.Ennek a számlának az összege lesz a rendelésed végösszege, és erről kell kiállítanod egy kompenzációs számlát, amit kérlek küldj el nekünk, illetve a <a href="mailto:penzugycsoport@biotechusa.com" className="text-primary hover:underline">penzugycsoport@biotechusa.com</a> címre is. Érdemes nem várni ezzel a hónap végé<strong>ig, hogy a rendelőfelületedet időben aktiválhassa a számviteli kolléga a következő hónapra.</strong>
+                            Amint leadod a rendelést, automatikusan kapsz majd egy visszaigazoló emailt róla, és kicsit később a <a href="mailto:szamla@szamlakozpont.hu" className="text-primary hover:underline">szamla@szamlakozpont.hu</a> címről érkezik egy email a termékszámlával.Ennek a számlának az összege lesz a rendelésed végösszege, és erről kell kiállítanod egy kompenzációs számlát, amit kérünk küldj el a <a href="mailto:sportmarketing@biotechusa.com" className="text-primary hover:underline">sportmarketing@biotechusa.com</a>, illetve a <a href="mailto:penzugycsoport@biotechusa.com" className="text-primary hover:underline">penzugycsoport@biotechusa.com</a> címre is. Érdemes ezzel nem várni a hónap végé<strong>ig, hogy a rendelőfelületedet időben aktiválhassa a számviteli kolléga a következő hónapra.</strong>
                         </p>
 
                         <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
@@ -83,17 +83,13 @@ export function OrderingSection() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                <span>A megjegyzés rovatba mindig írd bele, hogy miről szól a számla, pl.: <em>„február havi kompenzáció”</em>.</span>
+                                <span>A megjegyzés rovatba mindig írd bele, hogy miről szól a számla, pl.: <em>„február havi kompenzáció"</em>.</span>
                             </li>
                         </ul>
 
                         <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 mb-8 text-gray-300">
                             Ha esetleg nem kapnád meg emailben a termékszámlát rendelésedet követően 2-3 nappal sem (spam között sem találod), kérlek jelezd – de alapvetően fontos, hogy megérkezzen, mert amíg nem kapunk róla kompenzációs számlát, a rendszer automatikusan <strong className="text-white">zárolja a fiókodat</strong>, és nem fogsz tudni új rendelést leadni.
                         </div>
-
-                        <p className="text-sm text-gray-400 italic mb-10">
-                            Előfordulhat, hogy a rendelőfelületen vannak olyan termékek vagy ruhák, amelyeknek 0 Ft-os az áruk, vagy egyáltalán nem érhetők el. Ilyenkor ezeket a termékeket sajnos nem tudod a felületről megrendelni. Semmi gond! A rendelésed végösszegéből vond le ezek értékét, és írd meg emailben, hogy melyik darabokat nem tudtad leadni. Mi ezeket külön kiírjuk neked, és természetesen meg fogod kapni – csak külön csomagban fog érkezni. A lényeg, hogy így is mindenhez hozzá tudsz jutni.
-                        </p>
 
                         <div className="inline-block">
                             <SpotlightButton onClick={() => window.open("https://orders.biotechusa.com/home", "_blank")}>

@@ -35,30 +35,20 @@ export function ShootsSection() {
                             A BioTechUSA-val közös forgatásokon és fotózásokon való részvétel esetén a szerződésedben rögzített díjazás illet meg, amelyet számla ellenében tudunk kifizetni. Fontos, hogy a számlázás minden esetben a megfelelő formában történjen, mert csak így tudjuk azt befogadni és a kifizetést elindítani. <strong className="text-white">Amennyiben nincs lehetőséged számlát kiállítani ez a szekció nem vonatkozik rád.</strong>
                         </p>
 
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8 mt-8">
-                            <h4 className="text-lg font-bold text-white mb-4">Számlázási szabályok</h4>
-                            <ul className="space-y-4 m-0 p-0 list-none">
-                                <li className="flex gap-3">
-                                    <span className="text-primary">📝</span>
-                                    <span>A számlán a megnevezésnél kötelező feltüntetni a <strong className="text-white">pontos eseményt és annak dátumát</strong>. Például: <em>TikTok forgatás – 2026.02.13.</em> Enélkül sajnos nem tudjuk elfogadni a számlát.</span>
-                                </li>
-                                <li className="flex gap-3">
-                                    <span className="text-primary">💳</span>
-                                    <span>A fizetési módnál minden esetben az <strong className="text-white">átutalást</strong> szükséges kiválasztani, más opciókat (például készpénz) nem tudunk kezelni.</span>
-                                </li>
-                                <li className="flex gap-3">
-                                    <span className="text-primary">⏱️</span>
-                                    <span>A forgatástól számítva <strong className="text-white">a számla megküldésére a szerződésed szerinti időszak áll a rendelkezésedre</strong>. Csapatunk gyorsan dolgozik, és igyekszünk a kifizetéseket minél hamarabb teljesíteni, azonban kérjük, vedd figyelembe a szerződésedben szereplő határidőt, mivel annál korábban sajnos nem tudunk utalni.</span>
-                                </li>
-                            </ul>
-                        </div>
+                        <p className="mb-6">
+                            A számlán a megnevezésnél kötelező feltüntetni a <strong className="text-white">pontos eseményt és annak dátumát</strong>. Például: <em>TikTok forgatás – 2026.02.13.</em> Enélkül sajnos nem tudjuk elfogadni a számlát. A fizetési módnál minden esetben az <strong className="text-white">átutalást</strong> szükséges kiválasztani, más opciókat (például készpénz) nem tudunk kezelni.
+                        </p>
+
+                        <p className="mb-6">
+                            A forgatástól számítva <strong className="text-white">a számla megküldésére a szerződésed szerinti időszak áll a rendelkezésedre</strong>. Csapatunk gyorsan dolgozik, és igyekszünk a kifizetéseket minél hamarabb teljesíteni, azonban kérjük, vedd figyelembe a szerződésedben szereplő határidőt, mivel annál korábban sajnos nem tudunk utalni.
+                        </p>
 
                         <p className="mb-6">
                             Amennyiben egy adott időszakban több forgatáson vagy fotózáson is részt vettél, <strong className="text-white">nem szükséges külön számlát kiállítanod minden alkalomra</strong>. Ilyen esetben elegendő, ha a dátumokat vesszővel elválasztva, egymás mellett tünteted fel a megnevezésben, és egy számlán szerepelteted az eseményeket.
                         </p>
 
                         <p className="mt-8 pt-8 border-t border-white/10">
-                            A számlát minden esetben e-mailben kérjük elküldeni pdf formátumban, és fontos, hogy a levelezésben <strong className="text-white border-b border-primary">mindig szerepeljen címzettként</strong> a <a href="mailto:metz.zsofia@biotechusa.com" className="text-primary hover:underline whitespace-nowrap">metz.zsofia@biotechusa.com</a> és a <a href="mailto:borics.klaudia@biotechusa.com" className="text-primary hover:underline whitespace-nowrap">borics.klaudia@biotechusa.com</a> e-mail cím is, hogy biztosan és gyorsan feldolgozásra kerülhessen.
+                            A számlát minden esetben e-mailben kérjük elküldeni pdf formátumban a <a href="mailto:sportmarketing@biotechusa.com" className="text-primary hover:underline whitespace-nowrap">sportmarketing@biotechusa.com</a> e-mail címre, hogy biztosan és gyorsan feldolgozásra kerülhessen.
                         </p>
                     </motion.div>
 

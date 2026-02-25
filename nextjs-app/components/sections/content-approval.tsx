@@ -82,7 +82,7 @@ export function ContentApprovalSection() {
                                 </li>
                                 <li className="flex gap-3">
                                     <span className="text-primary">👉</span>
-                                    <span><strong className="text-white">Szelfie:</strong> ilyenkor mindig figyelj rá, hogy a logó és a termékek nehogy fordítva jelenjenek meg a képen. Kérlek használd a "mirror effektet", és tükrözd a képet.</span>
+                                    <span><strong className="text-white">Szelfie:</strong> ilyenkor mindig figyelj rá, hogy a logó és a termékek nehogy fordítva jelenjenek meg a képen. Kérlek használd a &quot;mirror effektet&quot;, és tükrözd a képet.</span>
                                 </li>
                                 <li className="flex gap-3">
                                     <span className="text-primary">👉</span>
@@ -90,7 +90,7 @@ export function ContentApprovalSection() {
                                 </li>
                                 <li className="flex gap-3">
                                     <span className="text-primary">👉</span>
-                                    <span><strong className="text-white">A videós tartalmak</strong> előnyösek a közösségi médiában, szóval örülünk neki, ha minél több videós tartalmat készítesz nekünk 😊</span>
+                                    <span><em><strong className="text-white">A videós tartalmak</strong></em> előnyösek a közösségi médiában, szóval örülünk neki, ha minél több videós tartalmat készítesz nekünk 😊</span>
                                 </li>
                             </ul>
                         </div>
@@ -98,19 +98,22 @@ export function ContentApprovalSection() {
                         <h4 className="text-xl font-bold text-white mt-10 mb-4">Útmutatás a posztokhoz</h4>
                         <p className="italic text-gray-400">Alább összegyűjtöttünk néhány kiemelkedő példát, hogy mire is gondolunk:</p>
                         <p>
-                            A poszt minél személyesebb, annál jobb. A VIDEÓS tartalmakat preferáljuk, aminek zárásaként nyugodtan használd outronkat, amit innen könnyedén le tudsz tölteni! 🙂
+                            A poszt minél személyesebb, annál jobb. A VIDEÓS tartalmakat preferáljuk, aminek zárásaként nyugodtan használd outronkat, amit a bekezdés aljáról könnyedén le tudsz tölteni! 🙂
                         </p>
                         <p>
-                            <strong className="text-white">Készíts dinamikus & aktív tartalmat!</strong> A BioTechUSA azt kommunikálja, hogy a márka fiatalos, energetikus és feldobja a mindennapokat. Mindig egy személyes történetet mondj el a követőidnek, miközben variálod a helyszínt, a stílusokat, és a kreatív ötleteket, melyek tükrözik a személyiségedet.
+                            <strong className="text-white">Készíts dinamikus & aktív tartalmat!</strong> A BioTechUSA azt kommunikálja, hogy a márka fiatalos, energetikus és feldobja a mindennapokat.
+                        </p>
+                        <p>
+                            Mindig egy személyes történetet mondj el a követőidnek, miközben variálod a helyszínt, a stílusokat, és a kreatív ötleteket, melyek tükrözik a személyiségedet.
                         </p>
 
                         <h4 className="text-xl font-bold text-white mt-10 mb-4">Havi megjelenések</h4>
                         <p>
-                            <strong className="text-white">Hónap végén kérlek csatold az adott hónapban megjelenített posztok linkjét és screenshotját, illetve a sztorik screenshotját - a szerződés szerint.</strong>
+                            <strong className="text-white">Hónap végén kérünk csatold az adott hónapban megjelenített posztok linkjét és screenshotját, illetve a sztorik screenshotját - a szerződés szerint.</strong>
                         </p>
 
                         <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 mb-10 text-gray-300 italic text-sm">
-                            <strong className="text-white not-italic block mb-2">FONTOS:</strong> A hiányzó havi tartalmak nem tolhatók át a következő hónapra. Hiányzó tartalmak esetén nem tudjuk részedre teljesíteni a következő havi termékrendelésed. Kérlek nagyon figyelj, hogy a szerződésedben leírt tartalmi mennyiségek teljesítésre kerüljenek adott hónapban.
+                            <strong className="text-white not-italic block mb-2">FONTOS:</strong> <em>A hiányzó havi tartalmak nem tolhatók át a következő hónapra. Hiányzó tartalmak esetén nem tudjuk részedre teljesíteni a következő havi termékrendelésed. Kérünk nagyon figyelj, hogy a szerződésedben leírt tartalmi mennyiségek teljesítésre kerüljenek adott hónapban.</em>
                         </div>
 
                         <div className="border-t border-white/10 pt-10 mt-10">
@@ -118,24 +121,24 @@ export function ContentApprovalSection() {
                             <p className="mb-6">
                                 Kérünk, hogy <strong className="text-white">minden megjelenést előzetesen küldj el jóváhagyásra</strong>, mielőtt publikálnád a közösségi oldalaidon. Ez téged is véd és minket is.
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-6 mb-8">
-                                <div className="flex-1 bg-white/5 border border-white/10 rounded-2xl p-5">
-                                    <h5 className="text-white font-bold mb-3 uppercase tracking-wider text-xs">Jóváhagyás szükséges:</h5>
-                                    <ul className="m-0 p-0 list-none space-y-2 text-sm">
-                                        <li>✅ Posztokra</li>
-                                        <li>✅ Videókra</li>
-                                    </ul>
-                                </div>
-                                <div className="flex-1 bg-white/5 border border-white/10 rounded-2xl p-5 opacity-70">
-                                    <h5 className="text-white font-bold mb-3 uppercase tracking-wider text-xs">Nem szükséges:</h5>
-                                    <ul className="m-0 p-0 list-none space-y-2 text-sm">
-                                        <li>❌ Storykra nem vonatkozik</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <p className="mb-4">Ez vonatkozik:</p>
+                            <ul className="space-y-2 mb-4 text-gray-400">
+                                <li className="flex items-start gap-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                    <span>posztokra</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                    <span>videókra</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                    <span>storykra nem vonatkozik</span>
+                                </li>
+                            </ul>
                             <p className="text-lg mb-10">
-                                📩 Jóváhagyásra küldd kérünk az alábbi e-mail címekre: <br />
-                                <a href="mailto:metz.zsofia@biotechusa.com" className="text-primary hover:underline font-bold mt-2 inline-block">metz.zsofia@biotechusa.com</a> és <a href="mailto:borics.klaudia@biotechusa.com" className="text-primary hover:underline font-bold mt-2 ml-1 inline-block">borics.klaudia@biotechusa.com</a>
+                                📩 Jóváhagyásra az alábbi e-mail címre: <br />
+                                <a href="mailto:sportmarketing@biotechusa.com" className="text-primary hover:underline font-bold mt-2 inline-block">sportmarketing@biotechusa.com</a>
                             </p>
 
                             <div className="inline-block">
