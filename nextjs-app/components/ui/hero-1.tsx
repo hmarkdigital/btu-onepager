@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { cn } from '@/lib/utils'
 import { FloatingNavbar } from './floating-navbar'
 import { SpotlightButton } from './spotlight-button'
 import Image from 'next/image'
+import { useLanguage } from '@/lib/language-context'
 
 interface HeroLandingProps {
     title: string
@@ -17,19 +17,27 @@ interface HeroLandingProps {
 }
 
 export function HeroLanding({
-    title,
     description,
     gradientColors = { from: "#001322", to: "#028FFB" }
 }: HeroLandingProps) {
     const containerRef = useRef<HTMLDivElement>(null)
     const { scrollY } = useScroll()
+    const { lang } = useLanguage()
 
     const y1 = useTransform(scrollY, [0, 500], [0, 200])
     const y2 = useTransform(scrollY, [0, 500], [0, -150])
     const textY = useTransform(scrollY, [0, 300], [0, 100])
     const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
-    const navItems = [
+    const navItems = lang === 'en' ? [
+        { name: 'Home', href: '#hero' },
+        { name: 'Ordering', href: '#ordering' },
+        { name: 'Briefs', href: '#briefs' },
+        { name: 'Content', href: '#content' },
+        { name: 'Shoots', href: '#shoots' },
+        { name: 'Payments', href: '#payments' },
+        { name: 'FAQ', href: '#faq' },
+    ] : [
         { name: 'Kezdőlap', href: '#hero' },
         { name: 'Rendelés', href: '#ordering' },
         { name: 'Briefek', href: '#briefs' },
@@ -38,6 +46,10 @@ export function HeroLanding({
         { name: 'Kifizetések', href: '#payments' },
         { name: 'GYIK', href: '#faq' },
     ]
+
+    const descriptionText = lang === 'en'
+        ? 'Everything in one place that a BioTechUSA ambassador needs to know.'
+        : description
 
     return (
         <div ref={containerRef} id="hero" className="w-full relative overflow-hidden bg-[#010204]">
@@ -81,18 +93,25 @@ export function HeroLanding({
             <div className="relative z-10 container px-6 pt-32 pb-16 mx-auto min-h-screen flex flex-col justify-start items-center text-center">
                 <motion.div style={{ y: textY, opacity }} className="mt-10 md:mt-20">
 
-                    {/* Main Title with Staggered Character Animation */}
                     <motion.h1
                         className="text-4xl sm:text-6xl md:text-8xl font-heading font-black tracking-tighter text-white mb-8 leading-[0.9]"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        Üdvözlünk a <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-[#2BA3CC] animate-gradient-x">
-                            BioTechUSA
-                        </span> <br />
-                        csapatában!
+                        {lang === 'en' ? (
+                            <>Welcome to the <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-[#2BA3CC] animate-gradient-x">
+                                BioTechUSA
+                            </span> <br />
+                            team!</>
+                        ) : (
+                            <>Üdvözlünk a <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-[#2BA3CC] animate-gradient-x">
+                                BioTechUSA
+                            </span> <br />
+                            csapatában!</>
+                        )}
                     </motion.h1>
 
                     <motion.p
@@ -101,7 +120,7 @@ export function HeroLanding({
                         transition={{ delay: 0.6, duration: 1 }}
                         className="mt-6 text-lg md:text-xl leading-8 text-gray-400 max-w-2xl mx-auto font-light"
                     >
-                        {description}
+                        {descriptionText}
                     </motion.p>
 
                     <motion.div
@@ -112,14 +131,14 @@ export function HeroLanding({
                     >
                         <a href="#ordering">
                             <SpotlightButton className="w-full sm:w-auto min-w-[200px]">
-                                Kezdjük el
+                                {lang === 'en' ? 'Get started' : 'Kezdjük el'}
                             </SpotlightButton>
                         </a>
                         <a
                             href="#briefs"
                             className="text-sm font-bold text-gray-400 hover:text-white transition-colors uppercase tracking-widest px-6 py-3"
                         >
-                            Tudj meg többet
+                            {lang === 'en' ? 'Learn more' : 'Tudj meg többet'}
                         </a>
                     </motion.div>
                 </motion.div>
@@ -138,7 +157,6 @@ export function HeroLanding({
                         priority
                         className="object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
-                    {/* Gradient overlay to blend bottom into next section */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#010204] via-transparent to-transparent opacity-80" />
                 </motion.div>
 
@@ -149,7 +167,9 @@ export function HeroLanding({
                     transition={{ delay: 1.5, duration: 1 }}
                     className="mt-16 md:mt-24 flex flex-col items-center gap-2"
                 >
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500">Görgess le</span>
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500">
+                        {lang === 'en' ? 'Scroll down' : 'Görgess le'}
+                    </span>
                     <div className="w-[1px] h-16 bg-gradient-to-b from-primary/0 via-primary to-primary/0 overflow-hidden">
                         <motion.div
                             className="w-full h-1/2 bg-primary"

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Providers } from '@/components/providers'
 
 export const metadata: Metadata = {
   title: 'BioTechUSA - Influencer Onboarding',
-  description: 'BioTechUSA influencer onboarding információs felület',
+  description: 'BioTechUSA influencer onboarding information platform',
 }
 
 export default function RootLayout({
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="hu" className="dark scroll-smooth">
       <body className={`font-sans bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white`}>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <div className="fixed inset-0 pointer-events-none z-[-1]">
           <div className="absolute top-0 left-0 w-full h-full bg-[#010204]"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 rounded-full blur-[120px] opacity-20"></div>

@@ -2,8 +2,12 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useLanguage } from '@/lib/language-context'
 
 export function BriefsSection() {
+    const { lang } = useLanguage()
+    const isEN = lang === 'en'
+
     return (
         <section id="briefs" className="py-24 md:py-32 relative overflow-hidden bg-[#001322]/20 border-t border-b border-white/5">
             <div className="container px-6 md:px-8 mx-auto max-w-7xl">
@@ -15,10 +19,12 @@ export function BriefsSection() {
                 >
                     <div className="flex items-center gap-4 mb-4">
                         <div className="w-12 h-[2px] bg-primary"></div>
-                        <span className="text-primary font-bold tracking-widest uppercase text-sm">Információ</span>
+                        <span className="text-primary font-bold tracking-widest uppercase text-sm">
+                            {isEN ? 'Information' : 'Információ'}
+                        </span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-heading font-black text-white tracking-tight">
-                        Havi briefek
+                        {isEN ? 'Monthly Briefs' : 'Havi briefek'}
                     </h2>
                 </motion.div>
 
@@ -31,48 +37,95 @@ export function BriefsSection() {
                         transition={{ duration: 0.8 }}
                         className="prose prose-invert prose-lg max-w-none text-gray-300"
                     >
-                        <p className="mb-6">
-                            Az együttműködés során <strong className="text-white">havi briefekkel</strong> dolgozunk. Minden brief tartalmaz egy <strong className="text-white">beküldési határidőt</strong>, amelyet jellemzően a PPT-ben a <strong className="text-white">jobb alsó sarokban</strong> találsz.
-                        </p>
+                        {isEN ? (
+                            <>
+                                <p className="mb-6">
+                                    During the collaboration, we work with <strong className="text-white">monthly briefs</strong>. Each brief includes a <strong className="text-white">submission deadline</strong>, which you will usually find in the <strong className="text-white">bottom right corner</strong> of the PPT.
+                                </p>
 
-                        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3 mt-10">
-                            <span className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">!</span>
-                            Fontos:
-                        </h3>
+                                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3 mt-10">
+                                    <span className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">!</span>
+                                    Important:
+                                </h3>
 
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm mb-10">
-                            <p className="m-0">
-                                Ez a határidő <strong className="text-white">nem a posztolás időpontja</strong>, hanem az a dátum, <strong className="text-primary">ameddig a tartalmat el kell küldened nekünk jóváhagyásra</strong>. Ha a tartalom jóváhagyásra került, a posztolásra vonatkozó időtartamban posztold. Amennyiben a brief nem tartalmaz erre vonatkozóan iránymutatást, mikor posztolj, abban az esetben rád bízzuk a hónapon belül mikor publikálod.
-                            </p>
-                        </div>
+                                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm mb-10">
+                                    <p className="m-0">
+                                        This deadline <strong className="text-white">is not the posting date</strong>, but the date <strong className="text-primary">by which you need to submit the content to us for approval</strong>. Once the content has been approved, you can publish it within the specified posting period. If the brief does not include guidance on when to post, you are free to decide <strong className="text-white">when to publish it during the given month</strong>.
+                                    </p>
+                                </div>
 
-                        <h4 className="text-2xl font-bold text-white mt-10 mb-6">Termékek a briefekhez</h4>
-                        <p className="mb-4">
-                            Előfordulhat, hogy a briefben olyan termék vagy ruházat szerepel, amit te alapból nem rendelnél meg. <strong className="text-white">Ilyen esetben</strong> ezeket <strong className="text-white">mi küldjük el neked</strong>, tehát <strong className="text-white">nem kell külön megrendelned, megvásárolnod</strong>.
-                        </p>
-                        <ul className="space-y-2 mb-6 text-gray-400">
-                            <li className="flex items-start gap-3">
-                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                <span>Általános termékeknél (pl. fehérje) feltételezzük, hogy rendelkezel vele</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                <span>Speciális termékeknél vagy egyedi ruhadaraboknál <strong className="text-white">minden esetben mi biztosítjuk a szükséges csomagot</strong></span>
-                            </li>
-                        </ul>
+                                <h4 className="text-2xl font-bold text-white mt-10 mb-6">Products for the Briefs</h4>
+                                <p className="mb-4">
+                                    There may be cases where the brief includes a product or clothing item that you would not normally order yourself. <strong className="text-white">In such cases</strong>, <strong className="text-white">we will send these items to you</strong>, meaning <strong className="text-white">you do not need to order or purchase them separately</strong>.
+                                </p>
+                                <ul className="space-y-2 mb-6 text-gray-400">
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                        <span>For general products (e.g., protein), we assume that you already have them</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                        <span>For special products or unique clothing items, <strong className="text-white">we will always provide the necessary package</strong></span>
+                                    </li>
+                                </ul>
 
-                        <p className="mb-4 font-medium text-white/90">Emiatt <strong className="text-white">kétféle csomagot</strong> kapsz <strong className="text-white">havonta</strong>:</p>
-                        <ul className="space-y-2 mb-8 text-gray-400">
-                            <li className="flex items-start gap-3">
-                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                <span>egy <strong className="text-white">briefhez kapcsolódó csomagot</strong> tőlünk</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                <span>valamint az <strong className="text-white">általad megrendelt saját csomagot</strong></span>
-                            </li>
-                        </ul>
+                                <p className="mb-4 font-medium text-white/90">Because of this, you will receive <strong className="text-white">two types of packages</strong> <strong className="text-white">each month</strong>:</p>
+                                <ul className="space-y-2 mb-8 text-gray-400">
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                        <span>a <strong className="text-white">brief-related package</strong> sent by us</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                        <span>and your <strong className="text-white">own package that you ordered yourself</strong></span>
+                                    </li>
+                                </ul>
+                            </>
+                        ) : (
+                            <>
+                                <p className="mb-6">
+                                    Az együttműködés során <strong className="text-white">havi briefekkel</strong> dolgozunk. Minden brief tartalmaz egy <strong className="text-white">beküldési határidőt</strong>, amelyet jellemzően a PPT-ben a <strong className="text-white">jobb alsó sarokban</strong> találsz.
+                                </p>
 
+                                <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3 mt-10">
+                                    <span className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">!</span>
+                                    Fontos:
+                                </h3>
+
+                                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm mb-10">
+                                    <p className="m-0">
+                                        Ez a határidő <strong className="text-white">nem a posztolás időpontja</strong>, hanem az a dátum, <strong className="text-primary">ameddig a tartalmat el kell küldened nekünk jóváhagyásra</strong>. Ha a tartalom jóváhagyásra került, a posztolásra vonatkozó időtartamban posztold. Amennyiben a brief nem tartalmaz erre vonatkozóan iránymutatást, mikor posztolj, abban az esetben rád bízzuk a hónapon belül mikor publikálod.
+                                    </p>
+                                </div>
+
+                                <h4 className="text-2xl font-bold text-white mt-10 mb-6">Termékek a briefekhez</h4>
+                                <p className="mb-4">
+                                    Előfordulhat, hogy a briefben olyan termék vagy ruházat szerepel, amit te alapból nem rendelnél meg. <strong className="text-white">Ilyen esetben</strong> ezeket <strong className="text-white">mi küldjük el neked</strong>, tehát <strong className="text-white">nem kell külön megrendelned, megvásárolnod</strong>.
+                                </p>
+                                <ul className="space-y-2 mb-6 text-gray-400">
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                        <span>Általános termékeknél (pl. fehérje) feltételezzük, hogy rendelkezel vele</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                        <span>Speciális termékeknél vagy egyedi ruhadaraboknál <strong className="text-white">minden esetben mi biztosítjuk a szükséges csomagot</strong></span>
+                                    </li>
+                                </ul>
+
+                                <p className="mb-4 font-medium text-white/90">Emiatt <strong className="text-white">kétféle csomagot</strong> kapsz <strong className="text-white">havonta</strong>:</p>
+                                <ul className="space-y-2 mb-8 text-gray-400">
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                        <span>egy <strong className="text-white">briefhez kapcsolódó csomagot</strong> tőlünk</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                                        <span>valamint az <strong className="text-white">általad megrendelt saját csomagot</strong></span>
+                                    </li>
+                                </ul>
+                            </>
+                        )}
                     </motion.div>
 
                     {/* Right Column: Image */}
@@ -90,7 +143,6 @@ export function BriefsSection() {
                                 fill
                                 className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                             />
-                            {/* Decorative elements */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-[#010204]/60 via-transparent to-transparent opacity-80" />
                         </div>
                     </motion.div>

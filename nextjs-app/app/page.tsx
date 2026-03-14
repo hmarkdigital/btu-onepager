@@ -1,3 +1,5 @@
+'use client'
+
 import { HeroLanding } from "@/components/ui/hero-1"
 import { NavigationCardsSection } from "@/components/sections/navigation-cards"
 import { OrderingSection } from "@/components/sections/ordering"
@@ -6,8 +8,11 @@ import { ContentApprovalSection } from "@/components/sections/content-approval"
 import { ShootsSection } from "@/components/sections/shoots"
 import { PaymentsSection } from "@/components/sections/payments"
 import { FAQSection } from "@/components/sections/faq"
+import { useLanguage } from "@/lib/language-context"
 
 export default function Home() {
+  const { lang } = useLanguage()
+
   return (
     <main className="min-h-screen">
       <HeroLanding
@@ -40,7 +45,10 @@ export default function Home() {
               <img src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b0506f7979eb097acf82f_BTU_logo_white.png" alt="BioTechUSA" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
             </div>
             <div className="text-sm font-medium text-gray-400 tracking-wide text-center md:text-right">
-              Üdv a csapatban! <span className="text-white font-bold italic">Zsófi, Dia és Máté</span>
+              {lang === 'en'
+                ? <>Welcome to the team! <span className="text-white font-bold italic">Zsófi, Dia & Máté</span></>
+                : <>Üdv a csapatban! <span className="text-white font-bold italic">Zsófi, Dia és Máté</span></>
+              }
             </div>
           </div>
         </div>

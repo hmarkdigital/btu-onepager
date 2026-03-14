@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { useLanguage } from '@/lib/language-context'
 
 interface NavigationItem {
     name: string
@@ -19,6 +20,7 @@ interface FloatingNavbarProps {
 export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: FloatingNavbarProps) {
     const [isScrolled, setIsScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const { lang, setLang } = useLanguage()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -65,8 +67,21 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                             ))}
                         </ul>
 
-                        {/* Desktop Actions */}
-                        <div className="hidden lg:flex items-center gap-3">
+                        {/* Desktop Actions – Language Switcher */}
+                        <div className="hidden lg:flex items-center gap-1">
+                            <button
+                                onClick={() => setLang('hu')}
+                                className={`text-sm font-bold px-3 py-1.5 rounded-full transition-colors ${lang === 'hu' ? 'text-primary bg-primary/10' : 'text-gray-500 hover:text-white'}`}
+                            >
+                                HU
+                            </button>
+                            <span className="text-white/20 text-sm">|</span>
+                            <button
+                                onClick={() => setLang('en')}
+                                className={`text-sm font-bold px-3 py-1.5 rounded-full transition-colors ${lang === 'en' ? 'text-primary bg-primary/10' : 'text-gray-500 hover:text-white'}`}
+                            >
+                                EN
+                            </button>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -102,7 +117,7 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                                 <X className="w-8 h-8" />
                             </button>
                         </div>
-                        <nav className="flex flex-col gap-6 items-center justify-center h-[70vh]">
+                        <nav className="flex flex-col gap-6 items-center justify-center h-[60vh]">
                             {items.map((item, i) => (
                                 <motion.a
                                     key={item.name}
@@ -117,6 +132,21 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                                 </motion.a>
                             ))}
                         </nav>
+                        {/* Language switcher in mobile menu */}
+                        <div className="flex items-center justify-center gap-3 mt-6">
+                            <button
+                                onClick={() => { setLang('hu'); setMobileMenuOpen(false) }}
+                                className={`text-lg font-bold px-5 py-2 rounded-full border transition-colors ${lang === 'hu' ? 'border-primary text-primary bg-primary/10' : 'border-white/10 text-gray-400 hover:text-white'}`}
+                            >
+                                🇭🇺 Magyar
+                            </button>
+                            <button
+                                onClick={() => { setLang('en'); setMobileMenuOpen(false) }}
+                                className={`text-lg font-bold px-5 py-2 rounded-full border transition-colors ${lang === 'en' ? 'border-primary text-primary bg-primary/10' : 'border-white/10 text-gray-400 hover:text-white'}`}
+                            >
+                                🇬🇧 English
+                            </button>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

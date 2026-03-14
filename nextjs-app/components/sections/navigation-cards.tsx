@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { GlassCard } from '@/components/ui/glass-card'
+import { useLanguage } from '@/lib/language-context'
 
-const NAV_CARDS = [
+const NAV_CARDS_HU = [
     {
         id: 'ordering',
         title: 'Rendelőfelület',
@@ -47,12 +48,58 @@ const NAV_CARDS = [
     }
 ]
 
+const NAV_CARDS_EN = [
+    {
+        id: 'ordering',
+        title: 'Ordering',
+        description: "Here you'll find all the information about your compensation orders.",
+        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bc14bfe203a0969bc8_rendele%CC%81s%20(1).webp',
+        href: '#ordering',
+        imagePosition: 'object-[center_15%]'
+    },
+    {
+        id: 'briefs',
+        title: 'Briefs',
+        description: 'We work with monthly briefs – access the instructions with one click',
+        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21b34d042116ad3b6ee6_briefek%20(1).webp',
+        href: '#briefs',
+        imagePosition: 'object-[center_15%]'
+    },
+    {
+        id: 'content',
+        title: 'Content',
+        description: 'Access all resources for your content here',
+        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bc11f086a89298a0ed_tartalmak%20(1).webp',
+        href: '#content',
+        imagePosition: 'object-[center_25%]'
+    },
+    {
+        id: 'shoots',
+        title: 'Shoots',
+        description: 'Learn more about our filming and photoshoots here',
+        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21b6ab1d6f06a7511c13_forgatasok%20(1).webp',
+        href: '#shoots',
+        imagePosition: 'object-[center_25%]'
+    },
+    {
+        id: 'payments',
+        title: 'Payments',
+        description: 'Access the financial details and documents of our collaboration',
+        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bdb85cbedda8b60a95_kifizetesek%20(1).webp',
+        href: '#payments',
+        imagePosition: 'object-[center_15%]'
+    }
+]
+
 export function NavigationCardsSection() {
+    const { lang } = useLanguage()
+    const cards = lang === 'en' ? NAV_CARDS_EN : NAV_CARDS_HU
+
     return (
         <section className="py-24 relative overflow-hidden z-10">
             <div className="container px-6 md:px-8 mx-auto max-w-7xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {NAV_CARDS.map((card, index) => (
+                    {cards.map((card, index) => (
                         <motion.a
                             key={card.id}
                             href={card.href}

@@ -266,3 +266,34 @@ export const faqs: FAQItem[] = [
 ];
 
 export const campaignProducts: Product[] = products.filter(p => ['1', '2', '4', '5'].includes(p.id));
+
+export const faqsEN: FAQItem[] = [
+    {
+        id: 'faq-en-1',
+        question: 'What happens if I travel for a period of time?',
+        answer: 'No problem at all 😊 Please just let us know in advance and we will find the best solution together. We can ship packages almost anywhere, and we can also prepare a special brief for that month that fits your travel plans.',
+        category: 'general',
+        order: 1
+    },
+    {
+        id: 'faq-en-2',
+        question: 'What happens if my package does not arrive before the submission deadline?',
+        answer: "That is completely fine. We anticipate situations like this, so please don't worry. Simply send the content once your package arrives and you are able to work with it.",
+        category: 'briefs',
+        order: 2
+    },
+    {
+        id: 'faq-en-3',
+        question: 'What happens if the size in my package is not correct?',
+        answer: "No problem, we can solve this as well. Please notify us as soon as possible and we will arrange the exchange. However, it is important that you do not remove the tags and do not wear the product, as unfortunately we cannot exchange items that have already been used.",
+        category: 'ordering',
+        order: 3
+    },
+    {
+        id: 'faq-en-4',
+        question: 'What happens if I receive another collaboration opportunity?',
+        answer: 'That is not a problem either. The best approach is always to talk about it openly. We are happy to find a solution that works well for both you and us, and that can function smoothly in the long term.',
+        category: 'general',
+        order: 4
+    }
+];
