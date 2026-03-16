@@ -102,7 +102,7 @@ export function OrderingSection() {
                                 </ul>
 
                                 <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 mb-8 text-gray-300">
-                                    If you do not receive the product invoice by email <strong className="text-white">within 2–3 days after placing your order</strong> (and it is not in your spam folder either), please let us know. It is important that this invoice arrives, because <strong className="text-white">until we receive the corresponding compensation invoice, the system will automatically block your account</strong>, and you will not be able to place a new order.
+                                    If you do not receive the product invoice via email <strong className="text-white">within 2–3 days after placing your order</strong> (and it is not in your spam folder either), please let us know. It is important that this invoice arrives, because <strong className="text-white">until we receive the corresponding compensation invoice, the system will automatically block your account</strong>, and you will not be able to place a new order.
                                 </div>
 
                                 <p className="mb-4">

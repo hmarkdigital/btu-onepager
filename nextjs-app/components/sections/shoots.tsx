@@ -40,7 +40,7 @@ export function ShootsSection() {
                         {isEN ? (
                             <>
                                 <p className="mb-6">
-                                    If you participate in <strong className="text-white">filming or photoshoots organized with BioTechUSA</strong>, you will receive the compensation specified in your contract, which we can pay against an invoice. It is important that the invoice is issued in the correct format, as we can only accept and process payments this way. <strong className="text-white">If you are not able to issue an invoice, this section does not apply to you.</strong>
+                                    If you participate in <strong className="text-white">filming or photoshoots organized by BioTechUSA</strong>, you will receive the compensation specified in your contract, which we can pay against an invoice. It is important that the invoice is issued in the correct format, as we can only accept and process payments this way. <strong className="text-white">If you are not able to issue an invoice, this section does not apply to you.</strong>
                                 </p>
 
                                 <p className="mb-6">
