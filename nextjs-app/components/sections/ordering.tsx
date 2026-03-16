@@ -106,7 +106,7 @@ export function OrderingSection() {
                                 </div>
 
                                 <p className="mb-4">
-                                    It may happen that on the ordering interface there are products or clothing items that appear with a <strong className="text-white">0 HUF price</strong> or are <strong className="text-white">not available at all</strong>. In such cases, unfortunately these items cannot be ordered through the platform.
+                                    It may happen that on the ordering interface there are products or clothing items that appear with a <strong className="text-white">0 EUR price</strong> or are <strong className="text-white">not available at all</strong>. In such cases, unfortunately these items cannot be ordered through the platform.
                                 </p>
                                 <p className="mb-8">
                                     No problem! Simply subtract the value of these products from your order total, and send us an email indicating <strong className="text-white">which items you were unable to include in your order</strong>. We will add these items manually for you, and of course you will still receive them — they will just arrive <strong className="text-white">in a separate package</strong>.
