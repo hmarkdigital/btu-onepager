@@ -127,7 +127,7 @@ export function ContentApprovalSection() {
                                 <div className="border-t border-white/10 pt-10 mt-10">
                                     <h3 className="text-3xl font-bold text-white mb-6">Content Approval</h3>
                                     <p className="mb-6">
-                                        Please <strong className="text-white">send every post for approval before publishing it on your social media platforms</strong>. This protects both you and us.
+                                        Please <strong className="text-white">send every post for approval before publishing it on your social media platforms</strong>. This helps us to avoid any mistakes to contents
                                     </p>
                                     <p className="mb-4">This applies to:</p>
                                     <ul className="space-y-2 mb-4 text-gray-400">

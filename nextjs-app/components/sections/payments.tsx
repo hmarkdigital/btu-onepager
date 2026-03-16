@@ -81,7 +81,7 @@ export function PaymentsSection() {
                                     <div className="bg-white/5 border border-white/10 rounded-xl p-3 text-center text-sm font-bold text-white hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-default">every two months,</div>
                                     <div className="bg-white/5 border border-white/10 rounded-xl p-3 text-center text-sm font-bold text-white hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-default">quarterly,</div>
                                     <div className="bg-white/5 border border-white/10 rounded-xl p-3 text-center text-sm font-bold text-white hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-default">semi-annually</div>
-                                    <div className="bg-white/5 border border-white/10 rounded-xl p-3 text-center text-sm font-bold text-white hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-default col-span-2 sm:col-span-1">or with an annual settlement.</div>
+                                    <div className="bg-white/5 border border-white/10 rounded-xl p-3 text-center text-sm font-bold text-white hover:bg-primary/20 hover:border-primary/50 transition-colors cursor-default col-span-2 sm:col-span-1">or by annual settlement.</div>
                                 </div>
 
                                 <p className="mb-6 border-l-2 border-primary pl-4">

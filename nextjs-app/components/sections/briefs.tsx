@@ -40,7 +40,7 @@ export function BriefsSection() {
                         {isEN ? (
                             <>
                                 <p className="mb-6">
-                                    During the collaboration, we work with <strong className="text-white">monthly briefs</strong>. Each brief includes a <strong className="text-white">submission deadline</strong>, which you will usually find in the <strong className="text-white">bottom right corner</strong> of the PPT.
+                                    During the collaboration, we work with <strong className="text-white">monthly briefs</strong>. each briefs include a <strong className="text-white">submission deadline</strong>, which you will usually find in the <strong className="text-white">bottom right corner</strong> of the PDF.
                                 </p>
 
                                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3 mt-10">

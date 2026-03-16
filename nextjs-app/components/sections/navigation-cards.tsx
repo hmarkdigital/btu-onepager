@@ -75,8 +75,8 @@ const NAV_CARDS_EN = [
     },
     {
         id: 'shoots',
-        title: 'Shoots',
-        description: 'Learn more about our filming and photoshoots here',
+        title: 'Production',
+        description: 'Learn more about our photoshoots here',
         image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21b6ab1d6f06a7511c13_forgatasok%20(1).webp',
         href: '#shoots',
         imagePosition: 'object-[center_25%]'

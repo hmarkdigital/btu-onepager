@@ -63,11 +63,11 @@ export function OrderingSection() {
                                 </div>
 
                                 <p className="mb-6">
-                                    From now on, you can place your orders through this interface. We usually ask that orders be submitted <strong className="text-white">by the 5th day of each month.</strong> This means that your March order should be placed on the platform <strong className="text-white">between March 1–5.</strong>
+                                    You can place your orders through this interface. Orders must be submitted <strong className="text-white">by the 5th day of each month.</strong> This means that your March order should be placed on the platform <strong className="text-white">between March 1–5.</strong>
                                 </p>
 
                                 <p className="mb-6 font-medium text-white/90">
-                                    If you have agreed on a different ordering method with your contact person, please follow those instructions instead. :)
+                                    If you agreed ordering in a different method with your contact person, please follow those instructions instead. :)
                                 </p>
 
                                 <p className="mb-8">
@@ -78,7 +78,7 @@ export function OrderingSection() {
                                     <a href="mailto:sportmarketing@biotechusa.com" className="text-primary hover:underline">sportmarketing@biotechusa.com</a>{' '}
                                     as well as to{' '}
                                     <a href="mailto:penzugycsoport@biotechusa.com" className="text-primary hover:underline">penzugycsoport@biotechusa.com</a>.{' '}
-                                    It is recommended <strong className="text-white">not to wait until the end of the month</strong> with this, so that our accounting colleague can activate your ordering interface in time for the following month.
+                                    It is recommended <strong className="text-white">not to wait until the end of the month</strong> with this, so that our accounting colleagues can activate your ordering interface in time for the following month.
                                 </p>
 
                                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
@@ -102,7 +102,7 @@ export function OrderingSection() {
                                 </ul>
 
                                 <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 mb-8 text-gray-300">
-                                    If you do not receive the product invoice by email <strong className="text-white">within 2–3 days after placing your order</strong> (and it is not in your spam folder either), please let us know. It is important that this invoice arrives, because <strong className="text-white">until we receive the corresponding compensation invoice, the system will automatically lock your account</strong>, and you will not be able to place a new order.
+                                    If you do not receive the product invoice by email <strong className="text-white">within 2–3 days after placing your order</strong> (and it is not in your spam folder either), please let us know. It is important that this invoice arrives, because <strong className="text-white">until we receive the corresponding compensation invoice, the system will automatically block your account</strong>, and you will not be able to place a new order.
                                 </div>
 
                                 <p className="mb-4">

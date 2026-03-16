@@ -56,7 +56,7 @@ export function ShootsSection() {
                                 </p>
 
                                 <p className="mt-8 pt-8 border-t border-white/10">
-                                    Please send the invoice <strong className="text-white">by email in PDF format</strong> to{' '}
+                                    Please send the invoice <strong className="text-white">via email in PDF format</strong> to{' '}
                                     <a href="mailto:sportmarketing@biotechusa.com" className="text-primary hover:underline whitespace-nowrap">sportmarketing@biotechusa.com</a>{' '}
                                     so it can be processed quickly and efficiently.
                                 </p>
