@@ -100,11 +100,10 @@ export function HeroLanding({
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                     >
                         {lang === 'en' ? (
-                            <>Welcome to the <br />
+                            <>Welcome to <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-[#2BA3CC] animate-gradient-x">
-                                BioTechUSA
-                            </span> <br />
-                            team!</>
+                                Team BioTechUSA
+                            </span></>
                         ) : (
                             <>Üdvözlünk a <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-[#2BA3CC] animate-gradient-x">
