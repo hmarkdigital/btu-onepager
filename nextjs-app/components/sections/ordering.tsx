@@ -78,7 +78,7 @@ export function OrderingSection() {
                                     <a href="mailto:sportmarketing@biotechusa.com" className="text-primary hover:underline">sportmarketing@biotechusa.com</a>{' '}
                                     as well as to{' '}
                                     <a href="mailto:penzugycsoport@biotechusa.com" className="text-primary hover:underline">penzugycsoport@biotechusa.com</a>.{' '}
-                                    It is recommended <strong className="text-white">not to wait until the end of the month</strong> with this, so that our accounting colleagues can activate your ordering interface in time for the following month.
+                                    It is recommended <strong className="text-white">not to wait until the end of the month</strong> with this, so our accounting colleagues can activate your ordering interface in time for the following month.
                                 </p>
 
                                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">

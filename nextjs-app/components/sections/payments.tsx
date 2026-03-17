@@ -85,7 +85,7 @@ export function PaymentsSection() {
                                 </div>
 
                                 <p className="mb-6 border-l-2 border-primary pl-4">
-                                    If you would prefer to receive your accumulated commission <strong className="text-white">every month</strong>, simply <strong className="text-white">let us know</strong> and we will gladly start the process.
+                                    If you prefer to receive your accumulated commission <strong className="text-white">every month</strong>, simply <strong className="text-white">let us know</strong> and we will gladly start the process.
                                 </p>
 
                                 <p className="mb-6 italic text-gray-400">

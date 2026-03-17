@@ -60,7 +60,7 @@ export function ContentApprovalSection() {
                     >
                         {isEN ? (
                             <>
-                                <h3 className="text-3xl font-bold text-white mb-6">Welcome to the BioTechUSA Team!</h3>
+                                <h3 className="text-3xl font-bold text-white mb-6">Welcome to Team BioTechUSA</h3>
 
                                 <h4 className="text-xl font-bold text-white mt-10 mb-4">Announcement Post & BioTechUSA Tag in Your Instagram Bio</h4>
                                 <p>
