@@ -89,7 +89,7 @@ export function OrderingSection() {
                                 <ul className="space-y-4 mb-8 text-gray-400">
                                     <li className="flex items-start gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                        <span>The amount on the compensation invoice must <strong className="text-white">exactly match the order total down to the last HUF.</strong> If you invoice through a company, the amount must match the total order value <strong className="text-white">including VAT</strong>, not as e.g. "200 EUR + VAT".</span>
+                                        <span>The amount on the compensation invoice must <strong className="text-white">exactly match the order total down to the last EUR.</strong> If you invoice through a company, the amount must match the total order value <strong className="text-white">including VAT</strong>, not as e.g. "200 EUR + VAT".</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
