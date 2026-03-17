@@ -121,7 +121,7 @@ export function ContentApprovalSection() {
                                 </p>
 
                                 <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 mb-10 text-gray-300 italic text-sm">
-                                    <strong className="text-white not-italic block mb-2">IMPORTANT:</strong> <em>Missing monthly content cannot be carried over to the following month. If content is missing, we will unfortunately not be able to process your product order for the next month. Please make sure that the content quantities defined in your contract are completed within the given month.</em>
+                                    <strong className="text-white not-italic block mb-2">IMPORTANT:</strong> <em>Missing monthly content cannot be posted the following month. If content is missing, we will unfortunately not be able to process your product order for the next month. Please make sure that the content quantities defined in your contract are completed within the given month.</em>
                                 </div>
 
                                 <div className="border-t border-white/10 pt-10 mt-10">
