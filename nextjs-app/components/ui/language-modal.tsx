@@ -1,10 +1,10 @@
 'use client'
 
-import { useLanguage } from '@/lib/language-context'
+import { languages, useLanguage, type Lang } from '@/lib/language-context'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
 
-function LangButton({ onClick, label, sub }: { onClick: () => void; label: string; sub: string }) {
+function LangButton({ onClick, label, code }: { onClick: () => void; label: string; code: Lang }) {
     const btnRef = useRef<HTMLButtonElement>(null)
     const [pos, setPos] = useState({ x: 0, y: 0 })
     const [opacity, setOpacity] = useState(0)
@@ -12,6 +12,8 @@ function LangButton({ onClick, label, sub }: { onClick: () => void; label: strin
     return (
         <button
             ref={btnRef}
+            type="button"
+            lang={code}
             onClick={onClick}
             onMouseMove={(e) => {
                 if (!btnRef.current) return
@@ -20,7 +22,7 @@ function LangButton({ onClick, label, sub }: { onClick: () => void; label: strin
             }}
             onMouseEnter={() => setOpacity(1)}
             onMouseLeave={() => setOpacity(0)}
-            className="relative group flex flex-col items-center gap-2 px-14 py-7 rounded-2xl border border-white/10 bg-white/5 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden min-w-[170px]"
+            className="relative group flex flex-col items-center gap-2 px-4 sm:px-8 py-5 sm:py-7 rounded-2xl border border-white/10 bg-white/5 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden min-w-0 sm:min-w-[140px]"
         >
             <div
                 className="pointer-events-none absolute inset-0 transition duration-300"
@@ -30,23 +32,18 @@ function LangButton({ onClick, label, sub }: { onClick: () => void; label: strin
                 }}
             />
             <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-transparent group-hover:ring-primary/20 transition-all duration-300 pointer-events-none" />
-            <span className="text-3xl font-heading font-black text-white group-hover:text-primary transition-colors duration-200 relative z-10">
+            <span className="text-2xl sm:text-3xl font-heading font-black text-white group-hover:text-primary transition-colors duration-200 relative z-10">
                 {label}
             </span>
             <span className="text-[11px] font-bold text-gray-500 uppercase tracking-[0.25em] relative z-10">
-                {sub}
+                {code.toUpperCase()}
             </span>
         </button>
     )
 }
 
 export function LanguageModal() {
-    const { showModal, setShowModal, setLang } = useLanguage()
-
-    const selectLang = (lang: 'hu' | 'en') => {
-        setLang(lang)
-        setShowModal(false)
-    }
+    const { showModal, setLang } = useLanguage()
 
     return (
         <AnimatePresence>
@@ -56,6 +53,9 @@ export function LanguageModal() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.4 }}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="language-title"
                     className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#010204] overflow-hidden"
                 >
                     {/* Animated gradient orbs — same style as hero */}
@@ -73,7 +73,7 @@ export function LanguageModal() {
                     />
 
                     {/* Content */}
-                    <div className="relative z-10 flex flex-col items-center text-center px-6">
+                    <div className="relative z-10 w-full flex flex-col items-center text-center px-6">
                         {/* Logo */}
                         <motion.div
                             initial={{ opacity: 0, y: -16 }}
@@ -90,6 +90,7 @@ export function LanguageModal() {
 
                         {/* Heading */}
                         <motion.h1
+                            id="language-title"
                             initial={{ opacity: 0, y: 32 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -107,7 +108,7 @@ export function LanguageModal() {
                             transition={{ delay: 0.5, duration: 0.7 }}
                             className="text-gray-500 text-xs uppercase tracking-[0.3em] mb-14"
                         >
-                            Válassz nyelvet
+                            Válassz nyelvet / Choisis ta langue / Elige tu idioma
                         </motion.p>
 
                         {/* Language buttons */}
@@ -115,10 +116,11 @@ export function LanguageModal() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.65, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                            className="flex flex-col sm:flex-row gap-4"
+                            className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-xs md:max-w-3xl"
                         >
-                            <LangButton onClick={() => selectLang('hu')} label="Magyar" sub="HU" />
-                            <LangButton onClick={() => selectLang('en')} label="English" sub="EN" />
+                            {languages.map(({ code, label }) => (
+                                <LangButton key={code} onClick={() => setLang(code)} label={label} code={code} />
+                            ))}
                         </motion.div>
                     </div>
                 </motion.div>

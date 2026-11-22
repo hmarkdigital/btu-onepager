@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { useLanguage } from '@/lib/language-context'
+import { navigationCopy } from '@/lib/copy/navigation'
+import { languages, useLanguage } from '@/lib/language-context'
 
 interface NavigationItem {
     name: string
@@ -21,6 +22,7 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
     const [isScrolled, setIsScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const { lang, setLang } = useLanguage()
+    const copy = navigationCopy[lang]
 
     useEffect(() => {
         const handleScroll = () => {
@@ -53,12 +55,12 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                         </div>
 
                         {/* Desktop Navigation */}
-                        <ul className="hidden lg:flex items-center gap-1 text-sm font-medium text-white/60">
+                        <ul className="hidden lg:flex items-center gap-0 xl:gap-1 text-sm font-medium text-white/60">
                             {items.map((item) => (
-                                <li key={item.name}>
+                                <li key={item.href}>
                                     <a
                                         href={item.href}
-                                        className="inline-block hover:text-white transition-all duration-300 px-4 py-2 rounded-full hover:bg-white/5 font-sans relative group"
+                                        className="inline-block hover:text-white transition-all duration-300 px-2 xl:px-4 py-2 rounded-full hover:bg-white/5 font-sans relative group"
                                     >
                                         {item.name}
                                         <span className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full group-hover:w-4 transition-all duration-300 opacity-0 group-hover:opacity-100" />
@@ -68,20 +70,20 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                         </ul>
 
                         {/* Desktop Actions – Language Switcher */}
-                        <div className="hidden lg:flex items-center gap-1">
-                            <button
-                                onClick={() => setLang('hu')}
-                                className={`text-sm font-bold px-3 py-1.5 rounded-full transition-colors ${lang === 'hu' ? 'text-primary bg-primary/10' : 'text-gray-500 hover:text-white'}`}
-                            >
-                                HU
-                            </button>
-                            <span className="text-white/20 text-sm">|</span>
-                            <button
-                                onClick={() => setLang('en')}
-                                className={`text-sm font-bold px-3 py-1.5 rounded-full transition-colors ${lang === 'en' ? 'text-primary bg-primary/10' : 'text-gray-500 hover:text-white'}`}
-                            >
-                                EN
-                            </button>
+                        <div role="group" aria-label={copy.language} className="hidden lg:flex items-center shrink-0 gap-1">
+                            {languages.map(({ code, label }) => (
+                                <button
+                                    key={code}
+                                    type="button"
+                                    lang={code}
+                                    aria-label={label}
+                                    aria-pressed={lang === code}
+                                    onClick={() => setLang(code)}
+                                    className={`text-sm font-bold px-2 xl:px-3 py-1.5 rounded-full transition-colors ${lang === code ? 'text-primary bg-primary/10' : 'text-gray-500 hover:text-white'}`}
+                                >
+                                    {code.toUpperCase()}
+                                </button>
+                            ))}
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -90,7 +92,8 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                                 type="button"
                                 onClick={() => setMobileMenuOpen(true)}
                                 className="p-2 text-gray-300 hover:text-white transition-colors"
-                                aria-label="Toggle menu"
+                                aria-label={copy.menu}
+                                aria-expanded={mobileMenuOpen}
                             >
                                 <Menu className="w-6 h-6" />
                             </button>
@@ -106,46 +109,47 @@ export function FloatingNavbar({ items, logoText = "BioTechUSA", className }: Fl
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-[60] bg-[#010204]/95 backdrop-blur-xl p-6 md:hidden"
+                        className="fixed inset-0 z-[60] bg-[#010204]/95 backdrop-blur-xl p-6 overflow-y-auto lg:hidden"
                     >
                         <div className="flex justify-between items-center mb-8">
                             <img src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b0506f7979eb097acf82f_BTU_logo_white.png" alt="BioTechUSA" className="h-8 object-contain" />
                             <button
                                 onClick={() => setMobileMenuOpen(false)}
+                                aria-label={copy.close}
                                 className="p-2 text-gray-400 hover:text-white"
                             >
                                 <X className="w-8 h-8" />
                             </button>
                         </div>
-                        <nav className="flex flex-col gap-6 items-center justify-center h-[60vh]">
+                        <nav className="flex flex-col gap-4 sm:gap-6 items-center justify-center text-center">
                             {items.map((item, i) => (
                                 <motion.a
-                                    key={item.name}
+                                    key={item.href}
                                     href={item.href}
                                     onClick={() => setMobileMenuOpen(false)}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="text-3xl font-bold text-white hover:text-primary transition-colors"
+                                    className="text-2xl sm:text-3xl font-bold text-white hover:text-primary transition-colors"
                                 >
                                     {item.name}
                                 </motion.a>
                             ))}
                         </nav>
                         {/* Language switcher in mobile menu */}
-                        <div className="flex items-center justify-center gap-3 mt-6">
-                            <button
-                                onClick={() => { setLang('hu'); setMobileMenuOpen(false) }}
-                                className={`text-lg font-bold px-5 py-2 rounded-full border transition-colors ${lang === 'hu' ? 'border-primary text-primary bg-primary/10' : 'border-white/10 text-gray-400 hover:text-white'}`}
-                            >
-                                🇭🇺 Magyar
-                            </button>
-                            <button
-                                onClick={() => { setLang('en'); setMobileMenuOpen(false) }}
-                                className={`text-lg font-bold px-5 py-2 rounded-full border transition-colors ${lang === 'en' ? 'border-primary text-primary bg-primary/10' : 'border-white/10 text-gray-400 hover:text-white'}`}
-                            >
-                                🇬🇧 English
-                            </button>
+                        <div role="group" aria-label={copy.language} className="grid grid-cols-2 gap-3 max-w-xs mx-auto mt-8">
+                            {languages.map(({ code, label, flag }) => (
+                                <button
+                                    key={code}
+                                    type="button"
+                                    lang={code}
+                                    aria-pressed={lang === code}
+                                    onClick={() => { setLang(code); setMobileMenuOpen(false) }}
+                                    className={`text-base font-bold px-3 py-2 rounded-full border transition-colors ${lang === code ? 'border-primary text-primary bg-primary/10' : 'border-white/10 text-gray-400 hover:text-white'}`}
+                                >
+                                    <span aria-hidden="true">{flag}</span> {label}
+                                </button>
+                            ))}
                         </div>
                     </motion.div>
                 )}

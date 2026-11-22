@@ -2,11 +2,13 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { localizedBriefs } from '@/lib/copy/briefs'
 import { useLanguage } from '@/lib/language-context'
 
 export function BriefsSection() {
     const { lang } = useLanguage()
     const isEN = lang === 'en'
+    const copy = lang === 'fr' || lang === 'es' ? localizedBriefs[lang] : undefined
 
     return (
         <section id="briefs" className="py-24 md:py-32 relative overflow-hidden bg-[#001322]/20 border-t border-b border-white/5">
@@ -20,11 +22,11 @@ export function BriefsSection() {
                     <div className="flex items-center gap-4 mb-4">
                         <div className="w-12 h-[2px] bg-primary"></div>
                         <span className="text-primary font-bold tracking-widest uppercase text-sm">
-                            {isEN ? 'Information' : 'Információ'}
+                            {copy?.eyebrow ?? (isEN ? 'Information' : 'Információ')}
                         </span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-heading font-black text-white tracking-tight">
-                        {isEN ? 'Monthly Briefs' : 'Havi briefek'}
+                        {copy?.title ?? (isEN ? 'Monthly Briefs' : 'Havi briefek')}
                     </h2>
                 </motion.div>
 
@@ -37,47 +39,47 @@ export function BriefsSection() {
                         transition={{ duration: 0.8 }}
                         className="prose prose-invert prose-lg max-w-none text-gray-300"
                     >
-                        {isEN ? (
+                        {(isEN || copy) ? (
                             <>
                                 <p className="mb-6">
-                                    During the collaboration, we work with <strong className="text-white">monthly briefs</strong>. each briefs include a <strong className="text-white">submission deadline</strong>, which you will usually find in the <strong className="text-white">bottom right corner</strong> of the PDF.
+                                    {copy?.intro ?? <>During the collaboration, we work with <strong className="text-white">monthly briefs</strong>. each briefs include a <strong className="text-white">submission deadline</strong>, which you will usually find in the <strong className="text-white">bottom right corner</strong> of the PDF.</>}
                                 </p>
 
                                 <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3 mt-10">
                                     <span className="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-sm">!</span>
-                                    Important:
+                                    {copy?.important ?? "Important:"}
                                 </h3>
 
                                 <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm mb-10">
                                     <p className="m-0">
-                                        This deadline <strong className="text-white">is not the posting date</strong>, but the date <strong className="text-primary">by which you need to submit the content to us for approval</strong>. Once the content has been approved, you can publish it within the specified posting period. If the brief does not include guidance on when to post, you are free to decide <strong className="text-white">when to publish it during the given month</strong>.
+                                        {copy?.deadline ?? <>This deadline <strong className="text-white">is not the posting date</strong>, but the date <strong className="text-primary">by which you need to submit the content to us for approval</strong>. Once the content has been approved, you can publish it within the specified posting period. If the brief does not include guidance on when to post, you are free to decide <strong className="text-white">when to publish it during the given month</strong>.</>}
                                     </p>
                                 </div>
 
-                                <h4 className="text-2xl font-bold text-white mt-10 mb-6">Products for the Briefs</h4>
+                                <h4 className="text-2xl font-bold text-white mt-10 mb-6">{copy?.productsTitle ?? "Products for the Briefs"}</h4>
                                 <p className="mb-4">
-                                    There may be cases where the brief includes a product or clothing item that you would not normally order yourself. <strong className="text-white">In such cases</strong>, <strong className="text-white">we will send these items to you</strong>, meaning <strong className="text-white">you do not need to order or purchase them separately</strong>.
+                                    {copy?.productsIntro ?? <>There may be cases where the brief includes a product or clothing item that you would not normally order yourself. <strong className="text-white">In such cases</strong>, <strong className="text-white">we will send these items to you</strong>, meaning <strong className="text-white">you do not need to order or purchase them separately</strong>.</>}
                                 </p>
                                 <ul className="space-y-2 mb-6 text-gray-400">
                                     <li className="flex items-start gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                        <span>For general products (e.g., protein), we assume that you already have them</span>
+                                        <span>{copy?.commonProducts ?? "For general products (e.g., protein), we assume that you already have them"}</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                        <span>For special products or unique clothing items, <strong className="text-white">we will always provide the necessary package</strong></span>
+                                        <span>{copy?.specialProducts ?? <>For special products or unique clothing items, <strong className="text-white">we will always provide the necessary package</strong></>}</span>
                                     </li>
                                 </ul>
 
-                                <p className="mb-4 font-medium text-white/90">Because of this, you will receive <strong className="text-white">two types of packages</strong> <strong className="text-white">each month</strong>:</p>
+                                <p className="mb-4 font-medium text-white/90">{copy?.packages ?? <>Because of this, you will receive <strong className="text-white">two types of packages</strong> <strong className="text-white">each month</strong>:</>}</p>
                                 <ul className="space-y-2 mb-8 text-gray-400">
                                     <li className="flex items-start gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                        <span>a <strong className="text-white">brief-related package</strong> sent by us</span>
+                                        <span>{copy?.briefPackage ?? <>a <strong className="text-white">brief-related package</strong> sent by us</>}</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                        <span>and your <strong className="text-white">own package that you ordered yourself</strong></span>
+                                        <span>{copy?.ownPackage ?? <>and your <strong className="text-white">own package that you ordered yourself</strong></>}</span>
                                     </li>
                                 </ul>
                             </>
@@ -139,7 +141,7 @@ export function BriefsSection() {
                         <div className="relative aspect-[4/3] lg:aspect-square w-full rounded-[30px] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(2,143,251,0.1)] group">
                             <Image
                                 src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21b34d042116ad3b6ee6_briefek%20(1).webp"
-                                alt="BioTechUSA Havi Briefek"
+                                alt={copy ? `BioTechUSA – ${copy.title}` : "BioTechUSA Havi Briefek"}
                                 fill
                                 className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                             />

@@ -5,95 +5,68 @@ import Image from 'next/image'
 import { GlassCard } from '@/components/ui/glass-card'
 import { useLanguage } from '@/lib/language-context'
 
-const NAV_CARDS_HU = [
+const NAV_CARDS = [
     {
         id: 'ordering',
-        title: 'Rendelőfelület',
-        description: 'Itt minden infót megtalálsz a kompenzációs rendeléseiddel kapcsolatosan.',
         image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bc14bfe203a0969bc8_rendele%CC%81s%20(1).webp',
-        href: '#ordering',
         imagePosition: 'object-[center_15%]'
     },
     {
         id: 'briefs',
-        title: 'Briefek',
-        description: 'Havi briefekkel dolgozunk, amikhez az instrukciókat egy kattintással eléred',
         image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21b34d042116ad3b6ee6_briefek%20(1).webp',
-        href: '#briefs',
         imagePosition: 'object-[center_15%]'
     },
     {
         id: 'content',
-        title: 'Tartalmak',
-        description: 'Tartalmaidhoz minden segédletet innen érsz el',
         image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bc11f086a89298a0ed_tartalmak%20(1).webp',
-        href: '#content',
         imagePosition: 'object-[center_25%]'
     },
     {
         id: 'shoots',
-        title: 'Forgatások',
-        description: 'Forgatásainkról és fotózásainkról innen tájékozódhatsz bővebben',
         image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21b6ab1d6f06a7511c13_forgatasok%20(1).webp',
-        href: '#shoots',
         imagePosition: 'object-[center_25%]'
     },
     {
         id: 'payments',
-        title: 'Kifizetések',
-        description: 'Együttműködésünk pénzügyi részleteit és dokumentumait éred el',
         image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bdb85cbedda8b60a95_kifizetesek%20(1).webp',
-        href: '#payments',
         imagePosition: 'object-[center_15%]'
     }
-]
+] as const
 
-const NAV_CARDS_EN = [
-    {
-        id: 'ordering',
-        title: 'Ordering',
-        description: "Here you'll find all the information about your compensation orders.",
-        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bc14bfe203a0969bc8_rendele%CC%81s%20(1).webp',
-        href: '#ordering',
-        imagePosition: 'object-[center_15%]'
+const CARD_COPY = {
+    hu: {
+        ordering: { title: 'Rendelőfelület', description: 'Itt minden infót megtalálsz a havi rendeléseddel kapcsolatosan.' },
+        briefs: { title: 'Briefek', description: 'Havi briefekkel dolgozunk, amikhez az instrukciókat egy kattintással eléred' },
+        content: { title: 'Tartalmak', description: 'Tartalmaidhoz minden segédletet innen érsz el' },
+        shoots: { title: 'Forgatások', description: 'Forgatásainkról és fotózásainkról innen tájékozódhatsz bővebben' },
+        payments: { title: 'Kifizetések', description: 'Együttműködésünk pénzügyi részleteit éred el' },
     },
-    {
-        id: 'briefs',
-        title: 'Briefs',
-        description: 'We work with monthly briefs – access the instructions with one click',
-        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21b34d042116ad3b6ee6_briefek%20(1).webp',
-        href: '#briefs',
-        imagePosition: 'object-[center_15%]'
+    en: {
+        ordering: { title: 'Ordering', description: "Here you'll find all the information about your monthly order." },
+        briefs: { title: 'Briefs', description: 'We work with monthly briefs – access the instructions with one click' },
+        content: { title: 'Content', description: 'Access all resources for your content here' },
+        shoots: { title: 'Production', description: 'Learn more about our photoshoots here' },
+        payments: { title: 'Payments', description: 'Access the financial details of our collaboration' },
     },
-    {
-        id: 'content',
-        title: 'Content',
-        description: 'Access all resources for your content here',
-        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bc11f086a89298a0ed_tartalmak%20(1).webp',
-        href: '#content',
-        imagePosition: 'object-[center_25%]'
+    fr: {
+        ordering: { title: 'Commandes', description: 'Tout ce qu’il faut savoir sur ta commande mensuelle.' },
+        briefs: { title: 'Briefs', description: 'On fonctionne avec des briefs mensuels : retrouve les instructions en un clic.' },
+        content: { title: 'Contenus', description: 'Toutes les ressources pour créer tes contenus.' },
+        shoots: { title: 'Tournages', description: 'Tout savoir sur nos tournages et nos shootings photo.' },
+        payments: { title: 'Paiements', description: 'Les détails financiers de notre collaboration.' },
     },
-    {
-        id: 'shoots',
-        title: 'Production',
-        description: 'Learn more about our photoshoots here',
-        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21b6ab1d6f06a7511c13_forgatasok%20(1).webp',
-        href: '#shoots',
-        imagePosition: 'object-[center_25%]'
+    es: {
+        ordering: { title: 'Pedidos', description: 'Aquí encontrarás toda la información sobre tu pedido mensual.' },
+        briefs: { title: 'Briefs', description: 'Trabajamos con briefs mensuales; accede a las instrucciones con un solo clic.' },
+        content: { title: 'Contenido', description: 'Accede aquí a todos los recursos para tu contenido.' },
+        shoots: { title: 'Producción', description: 'Obtén más información sobre nuestras sesiones de fotos aquí.' },
+        payments: { title: 'Pagos', description: 'Accede a los detalles financieros de nuestra colaboración.' },
     },
-    {
-        id: 'payments',
-        title: 'Payments',
-        description: 'Access the financial details and documents of our collaboration',
-        image: 'https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bdb85cbedda8b60a95_kifizetesek%20(1).webp',
-        href: '#payments',
-        imagePosition: 'object-[center_15%]'
-    }
-]
+}
 
 export function NavigationCardsSection() {
     const { lang } = useLanguage()
-    const cards = lang === 'en' ? NAV_CARDS_EN : NAV_CARDS_HU
+    const cards = NAV_CARDS.map((card) => ({ ...card, ...CARD_COPY[lang][card.id] }))
 
     return (
         <section className="py-24 relative overflow-hidden z-10">
@@ -102,7 +75,7 @@ export function NavigationCardsSection() {
                     {cards.map((card, index) => (
                         <motion.a
                             key={card.id}
-                            href={card.href}
+                            href={`#${card.id}`}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}

@@ -5,11 +5,10 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { FloatingNavbar } from './floating-navbar'
 import { SpotlightButton } from './spotlight-button'
 import Image from 'next/image'
+import { navigationAnchors, navigationCopy } from '@/lib/copy/navigation'
 import { useLanguage } from '@/lib/language-context'
 
 interface HeroLandingProps {
-    title: string
-    description: string
     gradientColors?: {
         from: string
         to: string
@@ -17,7 +16,6 @@ interface HeroLandingProps {
 }
 
 export function HeroLanding({
-    description,
     gradientColors = { from: "#001322", to: "#028FFB" }
 }: HeroLandingProps) {
     const containerRef = useRef<HTMLDivElement>(null)
@@ -29,27 +27,9 @@ export function HeroLanding({
     const textY = useTransform(scrollY, [0, 300], [0, 100])
     const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
-    const navItems = lang === 'en' ? [
-        { name: 'Home', href: '#hero' },
-        { name: 'Ordering', href: '#ordering' },
-        { name: 'Briefs', href: '#briefs' },
-        { name: 'Content', href: '#content' },
-        { name: 'Shoots', href: '#shoots' },
-        { name: 'Payments', href: '#payments' },
-        { name: 'FAQ', href: '#faq' },
-    ] : [
-        { name: 'Kezdőlap', href: '#hero' },
-        { name: 'Rendelés', href: '#ordering' },
-        { name: 'Briefek', href: '#briefs' },
-        { name: 'Tartalmak', href: '#content' },
-        { name: 'Forgatások', href: '#shoots' },
-        { name: 'Kifizetések', href: '#payments' },
-        { name: 'GYIK', href: '#faq' },
-    ]
-
-    const descriptionText = lang === 'en'
-        ? 'Everything in one place that a BioTechUSA ambassador needs to know.'
-        : description
+    const copy = navigationCopy[lang]
+    const [titleStart, titleHighlight, titleEnd] = copy.title
+    const navItems = navigationAnchors.map((href, index) => ({ href, name: copy.labels[index] }))
 
     return (
         <div ref={containerRef} id="hero" className="w-full relative overflow-hidden bg-[#010204]">
@@ -99,18 +79,11 @@ export function HeroLanding({
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        {lang === 'en' ? (
-                            <>Welcome to <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-[#2BA3CC] animate-gradient-x">
-                                Team BioTechUSA
-                            </span></>
-                        ) : (
-                            <>Üdvözlünk a <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-[#2BA3CC] animate-gradient-x">
-                                BioTechUSA
-                            </span> <br />
-                            csapatában!</>
-                        )}
+                        {titleStart} <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-[#2BA3CC] animate-gradient-x">
+                            {titleHighlight}
+                        </span>
+                        {titleEnd && <> <br />{titleEnd}</>}
                     </motion.h1>
 
                     <motion.p
@@ -119,7 +92,7 @@ export function HeroLanding({
                         transition={{ delay: 0.6, duration: 1 }}
                         className="mt-6 text-lg md:text-xl leading-8 text-gray-400 max-w-2xl mx-auto font-light"
                     >
-                        {descriptionText}
+                        {copy.description}
                     </motion.p>
 
                     <motion.div
@@ -130,14 +103,14 @@ export function HeroLanding({
                     >
                         <a href="#ordering">
                             <SpotlightButton className="w-full sm:w-auto min-w-[200px]">
-                                {lang === 'en' ? 'Get started' : 'Kezdjük el'}
+                                {copy.start}
                             </SpotlightButton>
                         </a>
                         <a
                             href="#briefs"
                             className="text-sm font-bold text-gray-400 hover:text-white transition-colors uppercase tracking-widest px-6 py-3"
                         >
-                            {lang === 'en' ? 'Learn more' : 'Tudj meg többet'}
+                            {copy.learn}
                         </a>
                     </motion.div>
                 </motion.div>
@@ -151,7 +124,7 @@ export function HeroLanding({
                 >
                     <Image
                         src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b0c104c9f65901a4efbea__AW_2503_Ok%20(1).webp"
-                        alt="BioTechUSA Hero Image"
+                        alt="BioTechUSA"
                         fill
                         priority
                         className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -167,7 +140,7 @@ export function HeroLanding({
                     className="mt-16 md:mt-24 flex flex-col items-center gap-2"
                 >
                     <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500">
-                        {lang === 'en' ? 'Scroll down' : 'Görgess le'}
+                        {copy.scroll}
                     </span>
                     <div className="w-[1px] h-16 bg-gradient-to-b from-primary/0 via-primary to-primary/0 overflow-hidden">
                         <motion.div

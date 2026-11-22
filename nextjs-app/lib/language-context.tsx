@@ -1,47 +1,70 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useEffect, useState, useSyncExternalStore, type ReactNode } from 'react'
 
-export type Lang = 'hu' | 'en'
+export const languages = [
+    { code: 'hu', label: 'Magyar', flag: '🇭🇺' },
+    { code: 'en', label: 'English', flag: '🇬🇧' },
+    { code: 'fr', label: 'Français', flag: '🇫🇷' },
+    { code: 'es', label: 'Español', flag: '🇪🇸' },
+] as const
 
-interface LanguageContextType {
+export type Lang = (typeof languages)[number]['code']
+
+const STORAGE_KEY = 'btu-lang'
+
+function readSavedLanguage(): Lang | null {
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY)
+        return languages.find(({ code }) => code === saved)?.code ?? null
+    } catch {
+        return null
+    }
+}
+
+function subscribeToLanguage(onChange: () => void) {
+    const handleStorage = (event: StorageEvent) => {
+        if (event.key === STORAGE_KEY || event.key === null) onChange()
+    }
+
+    window.addEventListener('storage', handleStorage)
+    return () => window.removeEventListener('storage', handleStorage)
+}
+
+function getServerLanguage() {
+    return 'pending' as const
+}
+
+const LanguageContext = createContext<{
     lang: Lang
     setLang: (lang: Lang) => void
     showModal: boolean
-    setShowModal: (show: boolean) => void
-}
-
-const LanguageContext = createContext<LanguageContextType>({
+}>({
     lang: 'hu',
     setLang: () => {},
     showModal: false,
-    setShowModal: () => {},
 })
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [lang, setLangState] = useState<Lang>('hu')
-    const [showModal, setShowModal] = useState(false)
-    const [mounted, setMounted] = useState(false)
+    const saved = useSyncExternalStore(subscribeToLanguage, readSavedLanguage, getServerLanguage)
+    const [selection, setSelection] = useState<Lang | null>(null)
+    const lang = selection ?? (saved === 'pending' || saved === null ? 'hu' : saved)
 
     useEffect(() => {
-        setMounted(true)
-        const saved = localStorage.getItem('btu-lang') as Lang | null
-        if (saved === 'hu' || saved === 'en') {
-            setLangState(saved)
-        } else {
-            setShowModal(true)
-        }
-    }, [])
+        document.documentElement.lang = lang
+    }, [lang])
 
     const setLang = (newLang: Lang) => {
-        setLangState(newLang)
-        localStorage.setItem('btu-lang', newLang)
+        setSelection(newLang)
+        try {
+            localStorage.setItem(STORAGE_KEY, newLang)
+        } catch {
+            // Keep the selection for this visit if the browser blocks local storage.
+        }
     }
 
-    if (!mounted) return <>{children}</>
-
     return (
-        <LanguageContext.Provider value={{ lang, setLang, showModal, setShowModal }}>
+        <LanguageContext.Provider value={{ lang, setLang, showModal: selection === null && saved === null }}>
             {children}
         </LanguageContext.Provider>
     )

@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useRef, useState } from 'react'
-import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 interface SpotlightButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,7 +12,7 @@ interface SpotlightButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElem
     rel?: string
 }
 
-export function SpotlightButton({ children, className, variant = 'primary', href, target, rel, ...props }: SpotlightButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+export function SpotlightButton({ children, className, variant: _variant, href, target, rel, ...props }: SpotlightButtonProps & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
     const btnRef = useRef<HTMLElement>(null)
     const [position, setPosition] = useState({ x: 0, y: 0 })
     const [opacity, setOpacity] = useState(0)
@@ -34,13 +33,14 @@ export function SpotlightButton({ children, className, variant = 'primary', href
     }
 
     const Component = href ? 'a' : 'button'
+    const setButtonRef = (element: HTMLElement | null) => { btnRef.current = element }
 
     return (
         <Component
             href={href}
             target={target}
             rel={rel}
-            ref={btnRef as any}
+            ref={setButtonRef}
             onMouseMove={handleMouseMove}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -50,7 +50,7 @@ export function SpotlightButton({ children, className, variant = 'primary', href
                 "backdrop-blur-md text-gray-300 hover:text-white uppercase tracking-widest text-sm",
                 className
             )}
-            {...(props as any)}
+            {...props}
         >
             <div
                 className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"

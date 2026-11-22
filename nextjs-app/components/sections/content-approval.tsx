@@ -3,11 +3,14 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { SpotlightButton } from '@/components/ui/spotlight-button'
+import { localizedContent } from '@/lib/copy/content'
+import { EmphasizedText } from '@/components/ui/emphasized-text'
 import { useLanguage } from '@/lib/language-context'
 
 export function ContentApprovalSection() {
     const { lang } = useLanguage()
     const isEN = lang === 'en'
+    const copy = lang === 'fr' || lang === 'es' ? localizedContent[lang] : undefined
 
     return (
         <section id="content" className="py-24 md:py-32 relative">
@@ -21,11 +24,11 @@ export function ContentApprovalSection() {
                     <div className="flex items-center gap-4 mb-4">
                         <div className="w-12 h-[2px] bg-primary"></div>
                         <span className="text-primary font-bold tracking-widest uppercase text-sm">
-                            {isEN ? 'Creation' : 'Alkotás'}
+                            {copy?.eyebrow ?? (isEN ? 'Creation' : 'Alkotás')}
                         </span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-heading font-black text-white tracking-tight">
-                        {isEN ? 'Content' : 'Tartalmak'}
+                        {copy?.title ?? (isEN ? 'Content' : 'Tartalmak')}
                     </h2>
                 </motion.div>
 
@@ -41,7 +44,7 @@ export function ContentApprovalSection() {
                             <div className="relative aspect-[4/5] w-full rounded-[30px] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(2,143,251,0.1)] group">
                                 <Image
                                     src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b21bc11f086a89298a0ed_tartalmak%20(1).webp"
-                                    alt="BioTechUSA Tartalmak"
+                                    alt={copy ? `BioTechUSA – ${copy.title}` : "BioTechUSA Tartalmak"}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
@@ -58,100 +61,100 @@ export function ContentApprovalSection() {
                         transition={{ duration: 0.8 }}
                         className="prose prose-invert prose-lg max-w-none text-gray-300 pb-20"
                     >
-                        {isEN ? (
+                        {(isEN || copy) ? (
                             <>
-                                <h3 className="text-3xl font-bold text-white mb-6">Welcome to Team BioTechUSA</h3>
+                                <h3 className="text-3xl font-bold text-white mb-6">{copy?.welcome ?? "Welcome to Team BioTechUSA"}</h3>
 
-                                <h4 className="text-xl font-bold text-white mt-10 mb-4">Announcement Post & BioTechUSA Tag in Your Instagram Bio</h4>
+                                <h4 className="text-xl font-bold text-white mt-10 mb-4">{copy?.announcementTitle ?? "Announcement Post & BioTechUSA Tag in Your Instagram Bio"}</h4>
                                 <p>
-                                    Create <strong className="text-white">an announcement post</strong> to share that you have joined the <strong className="text-white">BioTechUSA team</strong>! It would be great if you could also share <strong className="text-white">your personal experience with the brand</strong>, and it is very important to <strong className="text-white">tag @biotechusa_de/fr/es/pl etc. in the post</strong>.
+                                    {copy?.announcement ?? <>Create <strong className="text-white">an announcement post</strong> to share that you have joined the <strong className="text-white">BioTechUSA team</strong>! It would be great if you could also share <strong className="text-white">your personal experience with the brand</strong>, and it is very important to <strong className="text-white">tag @biotechusa_de/fr/es/pl etc. in the post</strong>.</>}
                                 </p>
                                 <p>
-                                    Please also add the brand to your Instagram bio: <em className="text-primary font-bold">@biotechusa_de/fr/es/pl etc.</em> if you cannot find your country, do not worry, use <em className="text-primary font-bold">@biotechusa</em>
+                                    {copy?.bio ?? <>Please also add the brand to your Instagram bio: <em className="text-primary font-bold">@biotechusa_de/fr/es/pl etc.</em> if you cannot find your country, do not worry, use <em className="text-primary font-bold">@biotechusa</em></>}
                                 </p>
 
-                                <h4 className="text-xl font-bold text-white mt-10 mb-4">Instagram Story Highlight</h4>
+                                <h4 className="text-xl font-bold text-white mt-10 mb-4">{copy?.highlightTitle ?? "Instagram Story Highlight"}</h4>
                                 <p>
-                                    <strong className="text-white">Please create an Instagram highlight for your BioTechUSA stories</strong>, where you can collect your monthly story content. Below you can download the <strong className="text-white">logo</strong> that can be used as the <strong className="text-white">Instagram highlight cover image</strong>.
+                                    {copy?.highlight ?? <><strong className="text-white">Please create an Instagram highlight for your BioTechUSA stories</strong>, where you can collect your monthly story content. Below you can download the <strong className="text-white">logo</strong> that can be used as the <strong className="text-white">Instagram highlight cover image</strong>.</>}
                                 </p>
 
-                                <h4 className="text-xl font-bold text-white mt-10 mb-6">Content Guidelines: How to Create High-Quality and Authentic Content?</h4>
-                                <p className="mb-6">Here you can find our content expectations, along with some common mistakes to avoid:</p>
+                                <h4 className="text-xl font-bold text-white mt-10 mb-6">{copy?.guideTitle ?? "Content Guidelines: How to Create High-Quality and Authentic Content?"}</h4>
+                                <p className="mb-6">{copy?.guideIntro ?? "Here you can find our content expectations, along with some common mistakes to avoid:"}</p>
 
                                 <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">
                                     <ul className="space-y-4 m-0 p-0 list-none">
                                         <li className="flex gap-3">
                                             <span className="text-primary">👉</span>
-                                            <span><strong className="text-white">Always tag @biotechusa_de/fr/es/pl etc. in your posts.</strong></span>
+                                            <span>{copy ? <EmphasizedText text={copy.tag} /> : <><strong className="text-white">Always tag @biotechusa_de/fr/es/pl etc. in your posts.</strong></>}</span>
                                         </li>
                                         <li className="flex gap-3">
                                             <span className="text-primary">👉</span>
-                                            <span><strong className="text-white">Most commonly used hashtags:</strong> #BioTechUSA and the current campaign hashtag, e.g. #TheFeelingOfSuccess</span>
+                                            <span>{copy ? <EmphasizedText text={copy.hashtags} /> : <><strong className="text-white">Most commonly used hashtags:</strong> #BioTechUSA and the current campaign hashtag, e.g. #TheFeelingOfSuccess</>}</span>
                                         </li>
                                         <li className="flex gap-3">
                                             <span className="text-primary">👉</span>
-                                            <span><strong className="text-white">Selfies:</strong> Always make sure that the logo and products are not mirrored or reversed in the image. Please use the &quot;mirror effect&quot; and flip the image if necessary.</span>
+                                            <span>{copy ? <EmphasizedText text={copy.selfies} /> : <><strong className="text-white">Selfies:</strong> Always make sure that the logo and products are not mirrored or reversed in the image. Please use the &quot;mirror effect&quot; and flip the image if necessary.</>}</span>
                                         </li>
                                         <li className="flex gap-3">
                                             <span className="text-primary">👉</span>
-                                            <span><strong className="text-white">Lighting:</strong> Try to avoid using flash, as it can make the image look too bright.</span>
+                                            <span>{copy ? <EmphasizedText text={copy.lighting} /> : <><strong className="text-white">Lighting:</strong> Try to avoid using flash, as it can make the image look too bright.</>}</span>
                                         </li>
                                         <li className="flex gap-3">
                                             <span className="text-primary">👉</span>
-                                            <span><em><strong className="text-white">Video content</strong></em> performs especially well on social media, so we are happy if you create as many video-based contents as possible 😊</span>
+                                            <span>{copy ? <EmphasizedText text={copy.video} /> : <><em><strong className="text-white">Video content</strong></em> performs especially well on social media, so we are happy if you create as many video-based contents as possible 😊</>}</span>
                                         </li>
                                     </ul>
                                 </div>
 
-                                <h4 className="text-xl font-bold text-white mt-10 mb-4">Guidelines for Posts</h4>
-                                <p className="italic text-gray-400">Below we have collected some great examples to show what we mean:</p>
+                                <h4 className="text-xl font-bold text-white mt-10 mb-4">{copy?.postsTitle ?? "Guidelines for Posts"}</h4>
+                                <p className="italic text-gray-400">{copy?.examples ?? "Below we have collected some great examples to show what we mean:"}</p>
                                 <p>
-                                    The <strong className="text-white">more personal the post, the better</strong>. We prefer <strong className="text-white">VIDEO content</strong>, and you are welcome to use our outro at the end of your videos, which you can easily download at the bottom of this section! 🙂
+                                    {copy?.personal ?? <>The <strong className="text-white">more personal the post, the better</strong>. We prefer <strong className="text-white">VIDEO content</strong>, and you are welcome to use our outro at the end of your videos, which you can easily download at the bottom of this section! 🙂</>}
                                 </p>
                                 <p>
-                                    <strong className="text-white">Create dynamic and active content!</strong> BioTechUSA communicates a young, energetic lifestyle that adds energy to everyday life.
+                                    {copy?.dynamic ?? <><strong className="text-white">Create dynamic and active content!</strong> BioTechUSA communicates a young, energetic lifestyle that adds energy to everyday life.</>}
                                 </p>
                                 <p>
-                                    Always tell a personal story to your audience, while varying the locations, styles, and creative ideas that reflect your personality.
+                                    {copy?.story ?? "Always tell a personal story to your audience, while varying the locations, styles, and creative ideas that reflect your personality."}
                                 </p>
 
-                                <h4 className="text-xl font-bold text-white mt-10 mb-4">Monthly Appearances</h4>
+                                <h4 className="text-xl font-bold text-white mt-10 mb-4">{copy?.monthlyTitle ?? "Monthly Appearances"}</h4>
                                 <p className="mb-6">
-                                    <strong className="text-white">At the end of each month, please attach the links and screenshots of the posts published during that month, as well as screenshots of the stories — according to the terms in your contract.</strong>
+                                    <strong className="text-white">{copy?.monthly ?? "At the end of each month, please attach the links and screenshots of the posts published during that month, as well as screenshots of the stories — according to the terms in your contract."}</strong>
                                 </p>
 
                                 <div className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6 mb-10 text-gray-300 italic text-sm">
-                                    <strong className="text-white not-italic block mb-2">IMPORTANT:</strong> <em>Missing monthly content cannot be posted the following month. If content is missing, we will unfortunately not be able to process your product order for the next month. Please make sure that the content quantities defined in your contract are completed within the given month.</em>
+                                    <strong className="text-white not-italic block mb-2">{copy?.important ?? "IMPORTANT:"}</strong> <em>{copy?.warning ?? "Missing monthly content cannot be posted the following month. If content is missing, we will unfortunately not be able to process your product order for the next month. Please make sure that the content quantities defined in your contract are completed within the given month."}</em>
                                 </div>
 
                                 <div className="border-t border-white/10 pt-10 mt-10">
-                                    <h3 className="text-3xl font-bold text-white mb-6">Content Approval</h3>
+                                    <h3 className="text-3xl font-bold text-white mb-6">{copy?.approvalTitle ?? "Content Approval"}</h3>
                                     <p className="mb-6">
-                                        Please <strong className="text-white">send every post for approval before publishing it on your social media platforms</strong>. This helps us to avoid any mistakes to contents
+                                        {copy?.approval ?? <>Please <strong className="text-white">send every post for approval before publishing it on your social media platforms</strong>. This helps us to avoid any mistakes to contents</>}
                                     </p>
-                                    <p className="mb-4">This applies to:</p>
+                                    <p className="mb-4">{copy?.applies ?? "This applies to:"}</p>
                                     <ul className="space-y-2 mb-4 text-gray-400">
                                         <li className="flex items-start gap-3">
                                             <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                            <span>posts</span>
+                                            <span>{copy?.posts ?? "posts"}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                            <span>videos</span>
+                                            <span>{copy?.videos ?? "videos"}</span>
                                         </li>
                                         <li className="flex items-start gap-3">
                                             <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                                            <span>does not apply to stories</span>
+                                            <span>{copy?.stories ?? "does not apply to stories"}</span>
                                         </li>
                                     </ul>
                                     <p className="text-lg mb-10">
-                                        📩 Please send content for approval to: <br />
+                                        {copy?.email ?? "📩 Please send content for approval to:"} <br />
                                         <a href="mailto:sportmarketing@biotechusa.com" className="text-primary hover:underline font-bold mt-2 inline-block">sportmarketing@biotechusa.com</a>
                                     </p>
 
                                     <div className="inline-block">
                                         <SpotlightButton onClick={() => window.open("https://drive.google.com/drive/folders/1t2tbtgqcmlxOxczowwgNqbU1vXpuL4-r?usp=drive_link", "_blank")}>
-                                            Download
+                                            {copy?.download ?? "Download"}
                                         </SpotlightButton>
                                     </div>
                                 </div>

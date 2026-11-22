@@ -1,5 +1,6 @@
 'use client'
 
+import { localizedFAQ, localizedFAQItems } from '@/lib/copy/faq'
 import { faqs, faqsEN } from '@/lib/data'
 import {
     Accordion,
@@ -15,7 +16,8 @@ import { useLanguage } from '@/lib/language-context'
 
 export function FAQSection() {
     const { lang } = useLanguage()
-    const faqItems = lang === 'en' ? faqsEN : faqs
+    const faqItems = { hu: faqs, en: faqsEN, ...localizedFAQItems }[lang]
+    const copy = lang === 'fr' || lang === 'es' ? localizedFAQ[lang] : undefined
 
     return (
         <section id="faq" className="py-32 relative overflow-hidden">
@@ -27,10 +29,10 @@ export function FAQSection() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-6xl font-heading font-black text-white mb-6 tracking-tight">
-                        {lang === 'en' ? 'Frequently Asked Questions' : 'Gyakori kérdések'}
+                        {copy?.title ?? (lang === 'en' ? 'Frequently Asked Questions' : 'Gyakori kérdések')}
                     </h2>
                     <p className="text-xl text-gray-400 font-light">
-                        {lang === 'en' ? 'We help you navigate the most important questions.' : 'Segítünk eligazodni a legfontosabb kérdésekben.'}
+                        {copy?.intro ?? (lang === 'en' ? 'We help you navigate the most important questions.' : 'Segítünk eligazodni a legfontosabb kérdésekben.')}
                     </p>
                 </motion.div>
 
@@ -63,12 +65,12 @@ export function FAQSection() {
                     className="mt-16 text-center"
                 >
                     <p className="text-gray-400 mb-6">
-                        {lang === 'en' ? "Couldn't find your answer?" : 'Nem találtad meg a választ?'}
+                        {copy?.unanswered ?? (lang === 'en' ? "Couldn't find your answer?" : 'Nem találtad meg a választ?')}
                     </p>
                     <div className="inline-block">
                         <SpotlightButton href="mailto:sportmarketing@biotechusa.com">
                             <Mail className="w-4 h-4 mr-2" />
-                            {lang === 'en' ? 'Contact us' : 'Írj nekünk'}
+                            {copy?.contact ?? (lang === 'en' ? 'Contact us' : 'Írj nekünk')}
                         </SpotlightButton>
                     </div>
                 </motion.div>
