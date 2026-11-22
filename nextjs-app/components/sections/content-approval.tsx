@@ -67,10 +67,10 @@ export function ContentApprovalSection() {
 
                                 <h4 className="text-xl font-bold text-white mt-10 mb-4">{copy?.announcementTitle ?? "Announcement Post & BioTechUSA Tag in Your Instagram Bio"}</h4>
                                 <p>
-                                    {copy?.announcement ?? <>Create <strong className="text-white">an announcement post</strong> to share that you have joined the <strong className="text-white">BioTechUSA team</strong>! It would be great if you could also share <strong className="text-white">your personal experience with the brand</strong>, and it is very important to <strong className="text-white">tag @biotechusa_de/fr/es/pl etc. in the post</strong>.</>}
+                                    {copy?.announcement ?? <>Create <strong className="text-white">an announcement post</strong> to share that you have joined the <strong className="text-white">BioTechUSA team</strong>! It would be great if you could also share <strong className="text-white">your personal experience with the brand</strong>, and it is very important to <strong className="text-white">tag your country’s BioTechUSA Instagram account in the post</strong>.</>}
                                 </p>
                                 <p>
-                                    {copy?.bio ?? <>Please also add the brand to your Instagram bio: <em className="text-primary font-bold">@biotechusa_de/fr/es/pl etc.</em> if you cannot find your country, do not worry, use <em className="text-primary font-bold">@biotechusa</em></>}
+                                    {copy?.bio ?? <>Add the same BioTechUSA account to your Instagram bio.</>}
                                 </p>
 
                                 <h4 className="text-xl font-bold text-white mt-10 mb-4">{copy?.highlightTitle ?? "Instagram Story Highlight"}</h4>
@@ -85,7 +85,7 @@ export function ContentApprovalSection() {
                                     <ul className="space-y-4 m-0 p-0 list-none">
                                         <li className="flex gap-3">
                                             <span className="text-primary">👉</span>
-                                            <span>{copy ? <EmphasizedText text={copy.tag} /> : <><strong className="text-white">Always tag @biotechusa_de/fr/es/pl etc. in your posts.</strong></>}</span>
+                                            <span>{copy ? <EmphasizedText text={copy.tag} /> : <><strong className="text-white">Only tag your country’s BioTechUSA Instagram account in your posts.</strong> If your country has no local account, tag @biotechusa.</>}</span>
                                         </li>
                                         <li className="flex gap-3">
                                             <span className="text-primary">👉</span>
@@ -165,7 +165,7 @@ export function ContentApprovalSection() {
 
                                 <h4 className="text-xl font-bold text-white mt-10 mb-4">Bejelentő poszt & BioTechUSA tag az Instagram bióba</h4>
                                 <p>
-                                    Készíts <strong className="text-white">egy bejelentő posztot</strong>, miszerint csatlakoztál a BioTechUSA csapatához! Itt szuper lenne, ha megosztanád a személyes élményedet a márkával, illetve nagyon fontos, hogy a biotechusa_magyarorszag-ot is megjelöld a posztban.
+                                    Készíts <strong className="text-white">egy bejelentő posztot</strong>, miszerint csatlakoztál a BioTechUSA csapatához! Itt szuper lenne, ha megosztanád a személyes élményedet a márkával, illetve nagyon fontos, hogy a @biotechusa_magyarorszag-ot is megjelöld a posztban.
                                 </p>
                                 <p>
                                     Időközben kérlek a bióban is jelöld meg a márkát: <em className="text-primary font-bold">@biotechusa_magyarorszag</em>
