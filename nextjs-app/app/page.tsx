@@ -13,7 +13,7 @@ import { useLanguage } from "@/lib/language-context"
 
 export default function Home() {
   const { lang } = useLanguage()
-  const { footer, signature } = navigationCopy[lang]
+  const { footer } = navigationCopy[lang]
 
   return (
     <main className="min-h-screen">
@@ -45,7 +45,7 @@ export default function Home() {
               <img src="https://cdn.prod.website-files.com/67696bf6a7f399ccfcfd653f/699b0506f7979eb097acf82f_BTU_logo_white.png" alt="BioTechUSA" className="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity" />
             </div>
             <div className="text-sm font-medium text-gray-400 tracking-wide text-center md:text-right">
-              {footer} <span className="text-white font-bold italic">{signature}</span>
+              {footer} <span className="text-white font-bold italic">Partnership Team</span>
             </div>
           </div>
         </div>

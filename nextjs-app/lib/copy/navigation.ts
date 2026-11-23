@@ -10,7 +10,6 @@ export const navigationCopy = {
         learn: 'Tudj meg többet',
         scroll: 'Görgess le',
         footer: 'Üdv a csapatban!',
-        signature: 'Zsófi, Dia és Máté',
     },
     en: {
         labels: ['Home', 'Ordering', 'Briefs', 'Content', 'Shoots', 'Payments', 'FAQ'],
@@ -23,7 +22,6 @@ export const navigationCopy = {
         learn: 'Learn more',
         scroll: 'Scroll down',
         footer: 'Welcome to the team!',
-        signature: 'Zsófi, Dia & Máté',
     },
     fr: {
         labels: ['Accueil', 'Commandes', 'Briefs', 'Contenus', 'Tournages', 'Paiements', 'FAQ'],
@@ -36,7 +34,6 @@ export const navigationCopy = {
         learn: 'En savoir plus',
         scroll: 'Fais défiler',
         footer: 'Bienvenue dans l’équipe !',
-        signature: 'Zsófi, Dia et Máté',
     },
     es: {
         labels: ['Inicio', 'Pedidos', 'Briefs', 'Contenidos', 'Sesiones de fotos', 'Pagos', 'Preguntas frecuentes'],
@@ -49,7 +46,6 @@ export const navigationCopy = {
         learn: 'Más información',
         scroll: 'Desliza hacia abajo',
         footer: '¡Bienvenido/a al equipo!',
-        signature: 'Zsófi, Dia & Máté',
     },
 }
 
